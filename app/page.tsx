@@ -1,65 +1,137 @@
-import Image from "next/image";
+import Link from "next/link";
+import Script from "next/script";
+import { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import CTASection from "@/components/CTASection";
+import ResultsSection from "@/components/ResultsSection";
+import IntegrationsGrid from "@/components/IntegrationsGrid";
+import Testimonials from "@/components/Testimonials";
+import HeroAnimation from "@/components/HeroAnimation";
+import BentoFlex from "@/components/BentoFlex";
+import LogicFlow from "@/components/LogicFlow";
+
+export const metadata: Metadata = {
+  title: "Automuk | AI Agents, Workflow Automation & Custom B2B Software",
+  description: "Automuk helps businesses amplify growth through custom AI agents, seamless workflow automation (Zapier, Make, n8n), and high-performance software solutions. Transform your operations today.",
+  keywords: [
+    "AI Agents",
+    "B2B Automation",
+    "Workflow Automation",
+    "Custom Software Development",
+    "Zapier Experts",
+    "Make.com Automation",
+    "n8n Workflows",
+    "AI Chatbots for Business",
+    "Process Optimization",
+    "Digital Transformation"
+  ],
+  alternates: {
+    canonical: "https://autom.uk",
+  },
+  openGraph: {
+    title: "Automuk | Amplify Growth with Intelligent Automation",
+    description: "Scale your business with custom AI solutions and automated workflows. We build the tools that free your team to focus on growth.",
+    url: "https://autom.uk",
+    siteName: "Automuk",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Automuk - AI & Automation Solutions",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Automuk | AI & Automation Excellence",
+    description: "Custom AI agents and seamless workflows for modern businesses.",
+    images: ["/og-image.png"],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Automuk",
+  "url": "https://autom.uk",
+  "logo": "https://autom.uk/logo.svg",
+  "description": "Premium AI Automation and Custom Software Studio for B2B growth.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "US"
+  },
+  "service": [
+    {
+      "@type": "Service",
+      "name": "AI Agent Development",
+      "description": "Custom LLM integrations and intelligent chatbots."
+    },
+    {
+      "@type": "Service",
+      "name": "Workflow Automation",
+      "description": "Seamless integrations using Zapier, Make, and n8n."
+    },
+    {
+      "@type": "Service",
+      "name": "Custom Software Solutions",
+      "description": "Operational dashboards and internal tools."
+    }
+  ]
+};
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="flex flex-col w-full overflow-hidden bg-background">
+      <Script
+        id="json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <HeroAnimation />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="text-6xl md:text-8xl font-black tracking-tight mb-8 leading-[1.2] animate-reveal">
+            <span className="inline-block py-2 bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] animate-gradient-flow">
+              Amplifying Growth.
+            </span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up stagger-1">
+            Automuk builds AI-powered automation and custom software that frees your team from repetitive tasks and focuses them on what matters.
           </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up stagger-2">
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white min-w-[280px] h-16 text-xl shadow-[0_0_40px_rgba(49,104,250,0.4)] transition-all hover:scale-105 rounded-full">
+              <Link href="/contact">Book a Free Consultation</Link>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="bg-white/5 border-white/10 hover:bg-white/10 text-white min-w-[220px] h-16 text-xl rounded-full backdrop-blur-sm">
+              <Link href="/services">View Services</Link>
+            </Button>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </section>
+
+      {/* Expertise Section (Client Component) */}
+      <BentoFlex />
+
+      {/* Integrations Grid (Client Component) */}
+      <IntegrationsGrid />
+
+      {/* Process Section (Client Component) */}
+      <LogicFlow />
+
+      {/* Testimonials (Client Component) */}
+      {/* <Testimonials /> */}
+
+      {/* Results Section (Client Component) */}
+      {/* <ResultsSection /> */}
+
+      {/* Final CTA */}
+      <CTASection />
     </div>
   );
 }
