@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/tools/layout,_N_T_/tools/csv-to-json/layout,_N_T_/tools/csv-to-json/page,_N_T_/tools/csv-to-json"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/tools/csv-to-json/__PAGE__",
+    "/tools/csv-to-json",
+    "/tools",
+    "/_index",
+    "/_head"
+  ]
+}

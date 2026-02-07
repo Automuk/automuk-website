@@ -1,0 +1,302 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/about",
+      "regex": "^/about(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/how-it-works",
+      "regex": "^/how\\-it\\-works(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/how\\-it\\-works(?:/)?$"
+    },
+    {
+      "page": "/privacy",
+      "regex": "^/privacy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacy(?:/)?$"
+    },
+    {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
+    },
+    {
+      "page": "/services",
+      "regex": "^/services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    },
+    {
+      "page": "/terms",
+      "regex": "^/terms(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/terms(?:/)?$"
+    },
+    {
+      "page": "/tools",
+      "regex": "^/tools(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools(?:/)?$"
+    },
+    {
+      "page": "/tools/age-calculator",
+      "regex": "^/tools/age\\-calculator(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/age\\-calculator(?:/)?$"
+    },
+    {
+      "page": "/tools/base64-converter",
+      "regex": "^/tools/base64\\-converter(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/base64\\-converter(?:/)?$"
+    },
+    {
+      "page": "/tools/binary-converter",
+      "regex": "^/tools/binary\\-converter(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/binary\\-converter(?:/)?$"
+    },
+    {
+      "page": "/tools/bmi-calculator",
+      "regex": "^/tools/bmi\\-calculator(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/bmi\\-calculator(?:/)?$"
+    },
+    {
+      "page": "/tools/case-converter",
+      "regex": "^/tools/case\\-converter(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/case\\-converter(?:/)?$"
+    },
+    {
+      "page": "/tools/color-converter",
+      "regex": "^/tools/color\\-converter(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/color\\-converter(?:/)?$"
+    },
+    {
+      "page": "/tools/csv-to-json",
+      "regex": "^/tools/csv\\-to\\-json(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/csv\\-to\\-json(?:/)?$"
+    },
+    {
+      "page": "/tools/dice-roller",
+      "regex": "^/tools/dice\\-roller(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/dice\\-roller(?:/)?$"
+    },
+    {
+      "page": "/tools/diff-checker",
+      "regex": "^/tools/diff\\-checker(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/diff\\-checker(?:/)?$"
+    },
+    {
+      "page": "/tools/hash-generator",
+      "regex": "^/tools/hash\\-generator(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/hash\\-generator(?:/)?$"
+    },
+    {
+      "page": "/tools/image-converter",
+      "regex": "^/tools/image\\-converter(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/image\\-converter(?:/)?$"
+    },
+    {
+      "page": "/tools/json-prettier",
+      "regex": "^/tools/json\\-prettier(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/json\\-prettier(?:/)?$"
+    },
+    {
+      "page": "/tools/json-to-csv",
+      "regex": "^/tools/json\\-to\\-csv(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/json\\-to\\-csv(?:/)?$"
+    },
+    {
+      "page": "/tools/lorem-ipsum",
+      "regex": "^/tools/lorem\\-ipsum(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/lorem\\-ipsum(?:/)?$"
+    },
+    {
+      "page": "/tools/md-previewer",
+      "regex": "^/tools/md\\-previewer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/md\\-previewer(?:/)?$"
+    },
+    {
+      "page": "/tools/morse-code",
+      "regex": "^/tools/morse\\-code(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/morse\\-code(?:/)?$"
+    },
+    {
+      "page": "/tools/number-to-words",
+      "regex": "^/tools/number\\-to\\-words(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/number\\-to\\-words(?:/)?$"
+    },
+    {
+      "page": "/tools/password-generator",
+      "regex": "^/tools/password\\-generator(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/password\\-generator(?:/)?$"
+    },
+    {
+      "page": "/tools/password-strength",
+      "regex": "^/tools/password\\-strength(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/password\\-strength(?:/)?$"
+    },
+    {
+      "page": "/tools/percentage-calculator",
+      "regex": "^/tools/percentage\\-calculator(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/percentage\\-calculator(?:/)?$"
+    },
+    {
+      "page": "/tools/qr-generator",
+      "regex": "^/tools/qr\\-generator(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/qr\\-generator(?:/)?$"
+    },
+    {
+      "page": "/tools/regex-tester",
+      "regex": "^/tools/regex\\-tester(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/regex\\-tester(?:/)?$"
+    },
+    {
+      "page": "/tools/sql-formatter",
+      "regex": "^/tools/sql\\-formatter(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/sql\\-formatter(?:/)?$"
+    },
+    {
+      "page": "/tools/stopwatch",
+      "regex": "^/tools/stopwatch(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/stopwatch(?:/)?$"
+    },
+    {
+      "page": "/tools/timestamp-converter",
+      "regex": "^/tools/timestamp\\-converter(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/timestamp\\-converter(?:/)?$"
+    },
+    {
+      "page": "/tools/tip-calculator",
+      "regex": "^/tools/tip\\-calculator(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/tip\\-calculator(?:/)?$"
+    },
+    {
+      "page": "/tools/unit-converter",
+      "regex": "^/tools/unit\\-converter(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/unit\\-converter(?:/)?$"
+    },
+    {
+      "page": "/tools/url-converter",
+      "regex": "^/tools/url\\-converter(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/url\\-converter(?:/)?$"
+    },
+    {
+      "page": "/tools/uuid-generator",
+      "regex": "^/tools/uuid\\-generator(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/uuid\\-generator(?:/)?$"
+    },
+    {
+      "page": "/tools/word-counter",
+      "regex": "^/tools/word\\-counter(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/word\\-counter(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

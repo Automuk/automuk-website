@@ -1,0 +1,3 @@
+module.exports=[94008,a=>{"use strict";var b=a.i(7997);function c({children:a}){return(0,b.jsx)(b.Fragment,{children:a})}a.s(["default",()=>c,"metadata",0,{title:"How It Works",description:"Discover our systematic 4-step process for delivering high-impact AI and automation solutions tailored perfectly to your business requirements.",keywords:["automation process","AI implementation","how we work","automuk process","software development lifecycle"]}])}];
+
+//# sourceMappingURL=app_how-it-works_layout_tsx_21cb388c._.js.map

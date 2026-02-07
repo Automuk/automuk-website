@@ -1,0 +1,3 @@
+module.exports=[18382,a=>{"use strict";var b=a.i(7997);function c({children:a}){return(0,b.jsx)(b.Fragment,{children:a})}a.s(["default",()=>c,"metadata",0,{title:"JSON Prettier",description:"Format, beautify, and validate your JSON data instantly with our free online JSON Prettier tool. Clean, readable, and ready to use.",keywords:["json prettier","json formatter","json beautifier","format json","online json tool"]}])}];
+
+//# sourceMappingURL=app_tools_json-prettier_layout_tsx_3becfd56._.js.map

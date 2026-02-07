@@ -1,0 +1,3 @@
+module.exports=[88583,a=>{"use strict";var b=a.i(7997);function c({children:a}){return(0,b.jsx)(b.Fragment,{children:a})}a.s(["default",()=>c,"metadata",0,{title:"Lorem Ipsum Generator",description:"Generate placeholder text for your designs and mockups. Professional and easy to use Lorem Ipsum generator.",keywords:["lorem ipsum","placeholder text","dummy text","text generator","design tools"]}])}];
+
+//# sourceMappingURL=app_tools_lorem-ipsum_layout_tsx_aa897d2d._.js.map

@@ -1,0 +1,3 @@
+module.exports=[25940,a=>{"use strict";var b=a.i(7997);function c({children:a}){return(0,b.jsx)(b.Fragment,{children:a})}a.s(["default",()=>c,"metadata",0,{title:"Contact Us",description:"Get in touch with Automuk to discuss your AI and automation needs. Book a free consultation and start growing your business today.",keywords:["contact automuk","book consultation","hire AI developer","automation consulting","AI project inquiry"]}])}];
+
+//# sourceMappingURL=app_contact_layout_tsx_9c17aaaf._.js.map

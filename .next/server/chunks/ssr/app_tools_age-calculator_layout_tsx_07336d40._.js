@@ -1,0 +1,3 @@
+module.exports=[43443,a=>{"use strict";var b=a.i(7997);function c({children:a}){return(0,b.jsx)(b.Fragment,{children:a})}a.s(["default",()=>c,"metadata",0,{title:"Age Calculator",description:"Calculate your exact age in years, months, and days. Simple online age calculator with countdown to your next birthday.",keywords:["age calculator","calculate age online","birthday countdown","exact age","how old am i"]}])}];
+
+//# sourceMappingURL=app_tools_age-calculator_layout_tsx_07336d40._.js.map
