@@ -48,7 +48,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center space-x-10">
+          <div className="hidden lg:flex items-center space-x-10">
             {navLinks.map((link, i) => (
               <div
                 key={link.name}
@@ -70,65 +70,66 @@ export default function Navbar() {
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
                   </Link>
                 )}
-
-                {link.dropdown && (
-                  <AnimatePresence>
-                    {activeDropdown === link.name && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[1000px] pointer-events-auto"
-                      >
-                        <div className="relative bg-[#020617]/80 border border-white/10 rounded-[2.5rem] p-10 shadow-[0_40px_100px_rgba(0,0,0,0.8)] backdrop-blur-[40px] overflow-hidden w-[1100px]">
-                          {/* Subtle gradient background for depth */}
-                          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none"
-                            style={{
-                              backdropFilter: "blur(0px)"
-                            }}
-                          />
-
-                          <div className="relative grid grid-cols-5 gap-x-2 gap-y-1">
-                            {link.dropdown.map((tool) => (
-                              <Link
-                                key={tool.name}
-                                href={tool.href}
-                                className="group flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all duration-200 outline-none w-full"
-                              >
-                                <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-[#94A3B8] group-hover:bg-primary group-hover:text-white transition-all duration-300 shrink-0">
-                                  <tool.icon size={18} />
-                                </div>
-                                <div className="text-[13px] font-bold text-[#94A3B8] group-hover:text-white transition-colors truncate">
-                                  {tool.name}
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-
-                          <div className="relative mt-8 pt-8 border-t border-white/5 flex items-center justify-between px-2">
-                            <div className="flex items-center gap-3">
-                              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_15px_rgba(34,197,94,0.6)]" />
-                              <span className="text-[10px] text-white/50 font-black tracking-[0.2em] uppercase">30 Professional Tools</span>
-                            </div>
-                            <Link href="/tools" className="text-[10px] font-black uppercase tracking-[0.2em] text-primary hover:text-white transition-all flex items-center gap-2 group/all">
-                              <span>Full Toolbox</span>
-                              <ArrowLeftRight size={12} className="group-hover/all:translate-x-1 transition-transform" />
-                            </Link>
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                )}
               </div>
             ))}
+
+            {/* Desktop Dropdown - Centered to screen */}
+            <AnimatePresence>
+              {activeDropdown && navLinks.find(l => l.name === activeDropdown)?.dropdown && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  onMouseEnter={() => setActiveDropdown(activeDropdown)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                  className="absolute top-20 left-1/2 -translate-x-1/2 pt-4 w-fit pointer-events-auto"
+                >
+                  <div className="relative bg-[#020617]/80 border border-white/10 rounded-[2.5rem] p-10 shadow-[0_40px_100px_rgba(0,0,0,0.8)] backdrop-blur-[40px] overflow-hidden w-[1100px]">
+                    {/* Subtle gradient background for depth */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none"
+                      style={{
+                        backdropFilter: "blur(0px)"
+                      }}
+                    />
+
+                    <div className="relative grid grid-cols-5 gap-x-2 gap-y-1">
+                      {navLinks.find(l => l.name === activeDropdown)?.dropdown?.map((tool) => (
+                        <Link
+                          key={tool.name}
+                          href={tool.href}
+                          className="group flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all duration-200 outline-none w-full"
+                        >
+                          <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-[#94A3B8] group-hover:bg-primary group-hover:text-white transition-all duration-300 shrink-0">
+                            <tool.icon size={18} />
+                          </div>
+                          <div className="text-[13px] font-bold text-[#94A3B8] group-hover:text-white transition-colors truncate">
+                            {tool.name}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+
+                    <div className="relative mt-8 pt-8 border-t border-white/5 flex items-center justify-between px-2">
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_15px_rgba(34,197,94,0.6)]" />
+                        <span className="text-[10px] text-white/50 font-black tracking-[0.2em] uppercase">30 Professional Tools</span>
+                      </div>
+                      <Link href="/tools" className="text-[10px] font-black uppercase tracking-[0.2em] text-primary hover:text-white transition-all flex items-center gap-2 group/all">
+                        <span>Full Toolbox</span>
+                        <ArrowLeftRight size={12} className="group-hover/all:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white shadow-[0_0_20px_rgba(49,104,250,0.4)] transition-all hover:scale-105 rounded-full px-8">
               <Link href="/contact">Book a Consultation</Link>
             </Button>
           </div>
 
-          <div className="lg:hidden flex items-center">
+          <div className="flex items-center lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-muted-foreground hover:text-white transition-colors p-2"
@@ -146,7 +147,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden glass border-b border-white/10 overflow-hidden"
+            className="glass border-b border-white/10 overflow-y-auto max-h-[calc(100vh-5rem)] lg:hidden"
           >
             <div className="px-4 pt-4 pb-8 space-y-6">
               {navLinks.map((link) => (
@@ -156,7 +157,7 @@ export default function Navbar() {
                       <span className="block px-3 py-1 text-[10px] text-primary/60 font-black uppercase tracking-[0.2em] border-l-2 border-primary/20">
                         {link.name} (30)
                       </span>
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                         {link.dropdown.map((sub) => (
                           <Link
                             key={sub.name}

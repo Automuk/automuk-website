@@ -124,17 +124,17 @@ export default function ServicesPage() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-center max-w-4xl mx-auto mt-40 mb-32 relative z-10"
+                    className="text-center max-w-4xl mx-auto mt-24 md:mt-40 mb-16 md:mb-32 relative z-10"
                 >
-                    <h1 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-tight text-white font-heading">
+                    <h1 className="text-4xl md:text-8xl font-black mb-6 md:mb-8 tracking-tighter leading-tight text-white font-heading">
                         Expertise That <span className="text-[#3168FA]">Scales</span>
                     </h1>
-                    <p className="text-xl md:text-2xl text-[#94A3B8] leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-lg md:text-2xl text-[#94A3B8] leading-relaxed max-w-2xl mx-auto">
                         We don't just write code; we build engines for growth. Discover our specialized services designed to automate the mundane and amplify the meaningful.
                     </p>
                 </motion.div>
 
-                <div className="space-y-48 mb-32 relative z-10">
+                <div className="space-y-24 md:space-y-48 mb-24 md:mb-32 relative z-10">
                     {services.map((section, sIdx) => (
                         <section key={section.category} className="scroll-mt-32">
                             <motion.div
@@ -142,14 +142,14 @@ export default function ServicesPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, ease: "easeOut" }}
-                                className="flex items-center space-x-6 mb-16 px-4"
+                                className="flex items-center space-x-6 mb-10 md:mb-16 px-4"
                             >
-                                <div className="p-4 bg-[#3168FA]/10 rounded-2xl shadow-[0_0_30px_rgba(49,104,250,0.3)] border border-[#3168FA]/20">
-                                    <FontAwesomeIcon icon={section.icon} className="h-8 w-8 text-[#3168FA]" />
+                                <div className="p-3 md:p-4 bg-[#3168FA]/10 rounded-2xl shadow-[0_0_30px_rgba(49,104,250,0.3)] border border-[#3168FA]/20">
+                                    <FontAwesomeIcon icon={section.icon} className="h-6 w-6 md:h-8 md:w-8 text-[#3168FA]" />
                                 </div>
                                 <div>
-                                    <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-white font-heading">{section.category}</h2>
-                                    <p className="text-[#94A3B8] text-lg mt-2 font-medium">{section.description}</p>
+                                    <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white font-heading">{section.category}</h2>
+                                    <p className="text-[#94A3B8] text-base md:text-lg mt-2 font-medium">{section.description}</p>
                                 </div>
                             </motion.div>
 
@@ -165,25 +165,25 @@ export default function ServicesPage() {
                                         <Card className="glass bg-[#020617]/40 border-white/5 hover:border-[#3168FA]/40 transition-all flex flex-col h-full group hover:-translate-y-2 relative overflow-hidden">
                                             <div className="absolute top-0 right-0 w-24 h-24 bg-[#3168FA]/5 blur-2xl rounded-full translate-x-12 -translate-y-12 group-hover:bg-[#3168FA]/10 transition-colors" />
 
-                                            <CardHeader className="relative z-10">
+                                            <CardHeader className="p-6 md:p-10 relative z-10">
                                                 <div
-                                                    className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 border"
+                                                    className="w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 border"
                                                     style={{
                                                         backgroundColor: `${item.color}10`,
                                                         borderColor: `${item.color}20`
                                                     }}
                                                 >
-                                                    <FontAwesomeIcon icon={item.icon} className="h-7 w-7" style={{ color: item.color }} />
+                                                    <FontAwesomeIcon icon={item.icon} className="h-6 w-6 md:h-7 md:w-7" style={{ color: item.color }} />
                                                 </div>
-                                                <CardTitle className="text-2xl font-bold mb-4 text-white font-heading">{item.title}</CardTitle>
-                                                <CardDescription className="text-[#94A3B8] text-lg leading-relaxed min-h-[80px]">
+                                                <CardTitle className="text-xl md:text-2xl font-bold mb-4 text-white font-heading">{item.title}</CardTitle>
+                                                <CardDescription className="text-[#94A3B8] text-base md:text-lg leading-relaxed min-h-[60px] md:min-h-[80px]">
                                                     {item.description}
                                                 </CardDescription>
                                             </CardHeader>
 
-                                            <CardContent className="mt-auto pt-8 border-t border-white/5 relative z-10">
-                                                <div className="flex items-center space-x-3 text-base font-bold text-[#CE77FB] group-hover:translate-x-1 transition-transform">
-                                                    <FontAwesomeIcon icon={faBolt} className="h-5 w-5" style={{ color: '#CE77FB' }} />
+                                            <CardContent className="mt-auto p-6 md:p-10 pt-8 md:pt-8 border-t border-white/5 relative z-10">
+                                                <div className="flex items-center space-x-3 text-sm md:text-base font-bold text-[#CE77FB] group-hover:translate-x-1 transition-transform">
+                                                    <FontAwesomeIcon icon={faBolt} className="h-4 w-4 md:h-5 md:w-5" style={{ color: '#CE77FB' }} />
                                                     <span>Outcome: {item.outcome}</span>
                                                 </div>
                                             </CardContent>

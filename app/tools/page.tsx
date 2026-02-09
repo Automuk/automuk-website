@@ -80,7 +80,7 @@ export default function ToolsIndex() {
                     {filteredTools.length > 0 ? (
                         <motion.div
                             layout
-                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-6"
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 gap-6 items-start"
                         >
                             {filteredTools.map((tool, idx) => (
                                 <motion.div
@@ -93,30 +93,30 @@ export default function ToolsIndex() {
                                 >
                                     <Link
                                         href={tool.href}
-                                        className="group relative flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-[2rem] hover:bg-white/[0.07] hover:border-primary/50 transition-all duration-300 overflow-hidden outline-none"
+                                        className="group relative flex flex-col h-full p-6 md:p-8 bg-white/[0.03] border border-white/10 rounded-[2rem] hover:bg-white/[0.07] hover:border-primary/50 transition-all duration-300 overflow-hidden outline-none"
                                     >
                                         {/* Shadow Decor */}
                                         <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                                        <div className="w-16 h-16 mb-6 rounded-2xl bg-white/5 flex items-center justify-center text-[#94A3B8] group-hover:bg-primary group-hover:text-white group-hover:shadow-[0_0_30px_rgba(49,104,250,0.5)] transition-all duration-300 shrink-0">
+                                        <div className="w-14 h-14 md:w-16 md:h-16 mb-6 rounded-2xl bg-white/5 flex items-center justify-center text-[#94A3B8] group-hover:bg-primary group-hover:text-white group-hover:shadow-[0_0_30px_rgba(49,104,250,0.5)] transition-all duration-300 shrink-0">
                                             <tool.icon size={28} />
                                         </div>
 
-                                        <div className="flex-1 space-y-2">
-                                            <div className="flex items-center justify-between">
-                                                <h2 className="text-xl font-bold text-white group-hover:text-primary transition-colors">
+                                        <div className="flex-1 flex flex-col space-y-2">
+                                            <div className="flex items-center justify-between gap-2">
+                                                <h2 className="text-lg md:text-xl font-bold text-white group-hover:text-primary transition-colors">
                                                     {tool.name}
                                                 </h2>
-                                                <span className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-black uppercase tracking-widest text-[#475569] group-hover:text-primary/70 transition-colors">
+                                                <span className="px-3 py-1 bg-white/5 rounded-full text-[10px] font-black uppercase tracking-widest text-[#475569] group-hover:text-primary/70 transition-colors shrink-0">
                                                     {tool.category}
                                                 </span>
                                             </div>
-                                            <p className="text-[#94A3B8] text-sm font-medium leading-relaxed line-clamp-2 italic">
+                                            <p className="text-[#94A3B8] text-sm font-medium leading-relaxed line-clamp-2 italic flex-1">
                                                 {tool.description}
                                             </p>
                                         </div>
 
-                                        <div className="mt-8 flex items-center text-xs font-black uppercase tracking-widest text-[#475569] group-hover:text-white transition-colors gap-2">
+                                        <div className="mt-6 md:mt-8 flex items-center text-xs font-black uppercase tracking-widest text-[#475569] group-hover:text-white transition-colors gap-2">
                                             Get Started <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                                         </div>
                                     </Link>

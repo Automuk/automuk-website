@@ -38,16 +38,16 @@ const partners = [
 
 export default function IntegrationsGrid() {
     return (
-        <section className="py-32 relative bg-background overflow-hidden">
+        <section className="py-20 md:py-32 relative bg-background overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="text-center mb-16 animate-reveal">
-                    <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Built-in Connectivity.</h2>
-                    <p className="text-muted-foreground text-xl max-w-2xl mx-auto leading-relaxed">
+                <div className="text-center mb-10 md:mb-16 animate-reveal">
+                    <h2 className="text-3xl md:text-6xl font-black mb-6 tracking-tight">Built-in Connectivity.</h2>
+                    <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
                         Automuk integrates with your existing tech stack to build unified, autonomous workflows.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
                     {partners.map((partner, i) => {
                         return (
                             <motion.div
@@ -56,7 +56,7 @@ export default function IntegrationsGrid() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: i * 0.1 }}
                                 viewport={{ once: true }}
-                                className="glass bg-white/5 border-white/5 p-10 rounded-[2rem] flex flex-col items-center justify-center group transition-all duration-500 hover:border-primary/20 hover:-translate-y-2 cursor-pointer relative overflow-hidden"
+                                className="glass bg-white/5 border-white/5 p-6 md:p-10 rounded-[1.5rem] md:rounded-[2rem] flex flex-col items-center justify-center group transition-all duration-500 hover:border-primary/20 hover:-translate-y-2 cursor-pointer relative overflow-hidden"
                                 style={{ '--brand-color': partner.brandColor } as any}
                             >
                                 {/* Blurred Gradient Background on Hover */}

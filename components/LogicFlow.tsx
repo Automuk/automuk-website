@@ -12,11 +12,11 @@ import {
 
 export default function LogicFlow() {
     return (
-        <section className="py-40 bg-background relative overflow-hidden">
+        <section className="py-24 md:py-40 bg-background relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="mb-24">
-                    <h2 className="text-5xl md:text-7xl font-black tracking-tight mb-6">From Manual to Autonomous.</h2>
-                    <p className="text-muted-foreground text-xl max-w-2xl leading-relaxed">
+                <div className="mb-12 md:mb-24">
+                    <h2 className="text-3xl md:text-7xl font-black tracking-tight mb-6">From Manual to Autonomous.</h2>
+                    <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed">
                         Our proven process for transforming business operations through engineered simplicity.
                     </p>
                 </div>
@@ -34,10 +34,10 @@ export default function LogicFlow() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.2 }}
                             viewport={{ once: true }}
-                            className="p-8 glass bg-white/5 border-white/5 rounded-[2rem] hover:bg-white/10 transition-colors group"
+                            className="p-6 md:p-8 glass bg-white/5 border-white/5 rounded-[1.5rem] md:rounded-[2rem] hover:bg-white/10 transition-colors group"
                         >
                             <div className="flex items-center justify-between mb-6">
-                                <div className="text-5xl font-black text-primary/10 group-hover:text-primary/20 transition-colors">
+                                <div className="text-4xl md:text-5xl font-black text-primary/10 group-hover:text-primary/20 transition-colors">
                                     {item.step}
                                 </div>
                                 <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-500">

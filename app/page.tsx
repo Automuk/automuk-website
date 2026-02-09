@@ -96,19 +96,19 @@ export default function Home() {
         <HeroAnimation />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-6xl md:text-8xl font-black tracking-tight mb-8 leading-[1.2] animate-reveal">
+          <h1 className="text-4xl md:text-8xl font-black tracking-tight mb-8 leading-[1.2] animate-reveal">
             <span className="inline-block py-2 bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] animate-gradient-flow">
               Amplifying Growth.
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up stagger-1">
+          <p className="text-lg md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up stagger-1">
             Automuk builds AI-powered automation and custom software that frees your team from repetitive tasks and focuses them on what matters.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up stagger-2">
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white min-w-[280px] h-16 text-xl shadow-[0_0_40px_rgba(49,104,250,0.4)] transition-all hover:scale-105 rounded-full">
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white min-w-[280px] sm:min-w-[280px] h-14 sm:h-16 text-lg sm:text-xl shadow-[0_0_40px_rgba(49,104,250,0.4)] transition-all hover:scale-105 rounded-full">
               <Link href="/contact">Book a Free Consultation</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="bg-white/5 border-white/10 hover:bg-white/10 text-white min-w-[220px] h-16 text-xl rounded-full backdrop-blur-sm">
+            <Button asChild variant="outline" size="lg" className="bg-white/5 border-white/10 hover:bg-white/10 text-white min-w-[220px] sm:min-w-[220px] h-14 sm:h-16 text-lg sm:text-xl rounded-full backdrop-blur-sm">
               <Link href="/services">View Services</Link>
             </Button>
           </div>

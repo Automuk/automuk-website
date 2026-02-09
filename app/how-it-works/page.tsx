@@ -63,7 +63,7 @@ export default function HowItWorks() {
     return (
         <div className="flex flex-col w-full bg-[#00020C] min-h-screen">
             {/* --- HERO SECTION --- */}
-            <section className="relative pt-32 pb-20 px-4">
+            <section className="relative pt-32 pb-12 md:pb-20 px-4">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[400px] bg-[#4F46E5]/10 blur-[120px] rounded-full -z-10" />
 
                 <motion.div
@@ -72,14 +72,14 @@ export default function HowItWorks() {
                     animate="animate"
                     variants={staggerContainer}
                 >
-                    <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-tight text-white">
+                    <motion.h1 variants={fadeInUp} className="text-4xl md:text-7xl font-black mb-6 md:mb-8 tracking-tighter leading-tight text-white">
                         Simple, Linear, <br />
                         <span className="bg-gradient-to-r from-[#4F46E5] to-[#22D3EE] bg-clip-text text-transparent">
                             Effective.
                         </span>
                     </motion.h1>
 
-                    <motion.p variants={fadeInUp} className="text-xl text-[#94A3B8] leading-relaxed max-w-2xl mx-auto">
+                    <motion.p variants={fadeInUp} className="text-lg md:text-xl text-[#94A3B8] leading-relaxed max-w-2xl mx-auto">
                         We've stripped away the agency bloat to focus on what matters: delivering autonomous systems that work from day one.
                     </motion.p>
                 </motion.div>
@@ -97,8 +97,8 @@ export default function HowItWorks() {
                     >
                         {steps.map((s, idx) => (
                             <motion.div key={s.step} variants={fadeInUp} className="relative group">
-                                <Card className="glass bg-[#1E293B]/40 border-[#334155] p-8 md:p-12 hover:border-[#4F46E5]/40 transition-all duration-500 overflow-hidden">
-                                    <div className="absolute top-0 right-0 p-8 text-8xl font-black text-[#4F46E5]/5 pointer-events-none group-hover:text-[#4F46E5]/10 transition-colors">
+                                <Card className="glass bg-[#1E293B]/40 border-[#334155] p-6 md:p-12 hover:border-[#4F46E5]/40 transition-all duration-500 overflow-hidden">
+                                    <div className="absolute top-0 right-0 p-6 md:p-8 text-6xl md:text-8xl font-black text-[#4F46E5]/5 pointer-events-none group-hover:text-[#4F46E5]/10 transition-colors">
                                         {s.step}
                                     </div>
 
@@ -109,11 +109,11 @@ export default function HowItWorks() {
 
                                         <div className="flex-1">
                                             <div className="flex items-center gap-3 mb-2">
-                                                <span className={`text-xs font-bold tracking-[0.3em] uppercase ${s.color}`}>Step {s.step}</span>
+                                                <span className={`text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase ${s.color}`}>Step {s.step}</span>
                                                 <div className="h-px w-8 bg-[#334155]" />
                                             </div>
-                                            <h3 className="text-3xl font-bold text-white mb-4 tracking-tight">{s.title}</h3>
-                                            <p className="text-[#94A3B8] text-lg leading-relaxed max-w-2xl">{s.desc}</p>
+                                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">{s.title}</h3>
+                                            <p className="text-[#94A3B8] text-base md:text-lg leading-relaxed max-w-2xl">{s.desc}</p>
                                         </div>
 
                                         <div className="hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
