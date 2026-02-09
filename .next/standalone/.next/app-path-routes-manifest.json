@@ -2,6 +2,8 @@
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
   "/about/page": "/about",
+  "/api/video-download/route": "/api/video-download",
+  "/api/video-info/route": "/api/video-info",
   "/contact/page": "/contact",
   "/favicon.ico/route": "/favicon.ico",
   "/how-it-works/page": "/how-it-works",
@@ -18,7 +20,6 @@
   "/tools/case-converter/page": "/tools/case-converter",
   "/tools/color-converter/page": "/tools/color-converter",
   "/tools/csv-to-json/page": "/tools/csv-to-json",
-  "/tools/dice-roller/page": "/tools/dice-roller",
   "/tools/diff-checker/page": "/tools/diff-checker",
   "/tools/hash-generator/page": "/tools/hash-generator",
   "/tools/image-converter/page": "/tools/image-converter",
@@ -41,5 +42,6 @@
   "/tools/unit-converter/page": "/tools/unit-converter",
   "/tools/url-converter/page": "/tools/url-converter",
   "/tools/uuid-generator/page": "/tools/uuid-generator",
+  "/tools/video-downloader/page": "/tools/video-downloader",
   "/tools/word-counter/page": "/tools/word-counter"
 }

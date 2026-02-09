@@ -1,3 +1,0 @@
-module.exports=[17503,a=>{"use strict";var b=a.i(7997);function c({children:a}){return(0,b.jsx)(b.Fragment,{children:a})}a.s(["default",()=>c,"metadata",0,{title:"QR Generator",description:"Create high-quality QR codes instantly with our free online QR Generator. Customize colors and size to fit your needs.",keywords:["qr generator","create qr code","qr code creator","online qr generator","generate qr code"]}])}];
-
-//# sourceMappingURL=app_tools_qr-generator_layout_tsx_cd9db7ff._.js.map

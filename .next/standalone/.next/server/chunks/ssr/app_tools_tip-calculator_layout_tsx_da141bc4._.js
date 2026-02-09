@@ -1,3 +1,0 @@
-module.exports=[97235,a=>{"use strict";var b=a.i(7997);function c({children:a}){return(0,b.jsx)(b.Fragment,{children:a})}a.s(["default",()=>c,"metadata",0,{title:"Tip Calculator",description:"Easily calculate tips and split bills with your friends using our free online Tip Calculator.",keywords:["tip calculator","bill splitter","calculate tip online","restaurant tip","money tools"]}])}];
-
-//# sourceMappingURL=app_tools_tip-calculator_layout_tsx_da141bc4._.js.map

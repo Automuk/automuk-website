@@ -1,7 +1,7 @@
 import {
     Code2, Hash, QrCode, Image as ImageIcon,
     Globe, Key, Type, FileText, ArrowLeftRight, Binary,
-    DollarSign, Calendar, Percent, Dices, Ruler,
+    DollarSign, Calendar, Percent, Download, Ruler,
     Clock, Activity, Wand2, Search, Palette, GitCompare,
     Cpu, ShieldCheck, Radio, Lock, FileCode, FileSpreadsheet,
     Database, Timer, WholeWord
@@ -34,7 +34,7 @@ export const tools: Tool[] = [
     { name: "Tip Calculator", href: "/tools/tip-calculator", icon: DollarSign, category: "Lifestyle", description: "Easily split bills and calculate tip amounts." },
     { name: "Age Calculator", href: "/tools/age-calculator", icon: Calendar, category: "Lifestyle", description: "Check your exact age and see days until your next birthday." },
     { name: "Percentage Calculator", href: "/tools/percentage-calculator", icon: Percent, category: "Math", description: "Solve common percentage problems quickly." },
-    { name: "Dice Roller", href: "/tools/dice-roller", icon: Dices, category: "Lifestyle", description: "Roll virtual dice for games or decision making." },
+    { name: "Video Downloader", href: "/tools/video-downloader", icon: Download, category: "Converter", description: "Download videos from Instagram, YouTube, and Twitch." },
     { name: "Color Converter", href: "/tools/color-converter", icon: Palette, category: "Converter", description: "Convert between HEX, RGB, HSL and more." },
     { name: "Diff Checker", href: "/tools/diff-checker", icon: GitCompare, category: "Developer", description: "Compare two pieces of text and see differences." },
     { name: "Binary Converter", href: "/tools/binary-converter", icon: Cpu, category: "Converter", description: "Convert numbers between Binary, Decimal, and Hex." },

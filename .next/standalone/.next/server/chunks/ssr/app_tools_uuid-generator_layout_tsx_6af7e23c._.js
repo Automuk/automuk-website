@@ -1,3 +1,0 @@
-module.exports=[80492,a=>{"use strict";var b=a.i(7997);function c({children:a}){return(0,b.jsx)(b.Fragment,{children:a})}a.s(["default",()=>c,"metadata",0,{title:"UUID Generator",description:"Generate random UUID v4 identifiers instantly. Simple, fast, and secure online UUID generator.",keywords:["uuid generator","guid generator","v4 uuid","random id generator","online tools"]}])}];
-
-//# sourceMappingURL=app_tools_uuid-generator_layout_tsx_6af7e23c._.js.map

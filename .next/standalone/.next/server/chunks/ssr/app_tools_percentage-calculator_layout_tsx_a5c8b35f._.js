@@ -1,3 +1,0 @@
-module.exports=[91735,a=>{"use strict";var b=a.i(7997);function c({children:a}){return(0,b.jsx)(b.Fragment,{children:a})}a.s(["default",()=>c,"metadata",0,{title:"Percentage Calculator",description:"Solve common percentage problems easily. Calculate percentage of a number, percentage increase or decrease, and more.",keywords:["percentage calculator","calculate percentage","math tools","percentage increase","discount calculator"]}])}];
-
-//# sourceMappingURL=app_tools_percentage-calculator_layout_tsx_a5c8b35f._.js.map

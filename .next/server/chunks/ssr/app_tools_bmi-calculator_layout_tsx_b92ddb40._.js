@@ -1,3 +1,0 @@
-module.exports=[72186,a=>{"use strict";var b=a.i(7997);function c({children:a}){return(0,b.jsx)(b.Fragment,{children:a})}a.s(["default",()=>c,"metadata",0,{title:"BMI Calculator",description:"Calculate your Body Mass Index (BMI) easily with our free online health tool. Supports Metric and Imperial units.",keywords:["bmi calculator","body mass index","health tool","weight calculator","fitness tools"]}])}];
-
-//# sourceMappingURL=app_tools_bmi-calculator_layout_tsx_b92ddb40._.js.map

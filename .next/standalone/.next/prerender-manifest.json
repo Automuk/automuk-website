@@ -473,30 +473,6 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/tools/dice-roller": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/tools/dice-roller",
-      "dataRoute": "/tools/dice-roller.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/tools/diff-checker": {
       "experimentalBypassFor": [
         {
@@ -1025,6 +1001,30 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/tools/video-downloader": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/tools/video-downloader",
+      "dataRoute": "/tools/video-downloader.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/tools/word-counter": {
       "experimentalBypassFor": [
         {
@@ -1053,8 +1053,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "98f3c7539c8f1b52baae466b6b15d2f9",
-    "previewModeSigningKey": "f049c7c8b6da29d4c4605179efa430254c268f82e8986d474f4017a54bb003ce",
-    "previewModeEncryptionKey": "055960fad1f7a8d74d756b9332a6fdb7c3017e82d8a0104043bde656d01e1d66"
+    "previewModeId": "adfec8dccceccbf51ae8ff169417abd7",
+    "previewModeSigningKey": "e33bdefed641e5804cbda7cda6b35132ef4af3031dcdbd5cb1580f4dd2e59f16",
+    "previewModeEncryptionKey": "b66ac3eeb8159a60c16cccf9e2965a4eda1a902aafa183226cbc954901253855"
   }
 }

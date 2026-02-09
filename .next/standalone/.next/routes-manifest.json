@@ -47,6 +47,18 @@
       "namedRegex": "^/about(?:/)?$"
     },
     {
+      "page": "/api/video-download",
+      "regex": "^/api/video\\-download(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/video\\-download(?:/)?$"
+    },
+    {
+      "page": "/api/video-info",
+      "regex": "^/api/video\\-info(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/video\\-info(?:/)?$"
+    },
+    {
       "page": "/contact",
       "regex": "^/contact(?:/)?$",
       "routeKeys": {},
@@ -141,12 +153,6 @@
       "regex": "^/tools/csv\\-to\\-json(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/tools/csv\\-to\\-json(?:/)?$"
-    },
-    {
-      "page": "/tools/dice-roller",
-      "regex": "^/tools/dice\\-roller(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/tools/dice\\-roller(?:/)?$"
     },
     {
       "page": "/tools/diff-checker",
@@ -273,6 +279,12 @@
       "regex": "^/tools/uuid\\-generator(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/tools/uuid\\-generator(?:/)?$"
+    },
+    {
+      "page": "/tools/video-downloader",
+      "regex": "^/tools/video\\-downloader(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tools/video\\-downloader(?:/)?$"
     },
     {
       "page": "/tools/word-counter",

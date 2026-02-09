@@ -1,3 +1,0 @@
-module.exports=[71118,a=>{"use strict";var b=a.i(7997);function c({children:a}){return(0,b.jsx)(b.Fragment,{children:a})}a.s(["default",()=>c,"metadata",0,{title:"Dice Roller",description:"Roll virtual dice for your games or random decisions. Professional online dice roller supporting D4, D6, D8, D10, D12, and D20.",keywords:["dice roller","online dice","roll dice online","dnd dice","random number generator"]}])}];
-
-//# sourceMappingURL=app_tools_dice-roller_layout_tsx_ca335a24._.js.map

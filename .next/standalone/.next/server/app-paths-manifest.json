@@ -2,6 +2,8 @@
   "/_global-error/page": "app/_global-error/page.js",
   "/_not-found/page": "app/_not-found/page.js",
   "/about/page": "app/about/page.js",
+  "/api/video-download/route": "app/api/video-download/route.js",
+  "/api/video-info/route": "app/api/video-info/route.js",
   "/contact/page": "app/contact/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/how-it-works/page": "app/how-it-works/page.js",
@@ -18,7 +20,6 @@
   "/tools/case-converter/page": "app/tools/case-converter/page.js",
   "/tools/color-converter/page": "app/tools/color-converter/page.js",
   "/tools/csv-to-json/page": "app/tools/csv-to-json/page.js",
-  "/tools/dice-roller/page": "app/tools/dice-roller/page.js",
   "/tools/diff-checker/page": "app/tools/diff-checker/page.js",
   "/tools/hash-generator/page": "app/tools/hash-generator/page.js",
   "/tools/image-converter/page": "app/tools/image-converter/page.js",
@@ -41,5 +42,6 @@
   "/tools/unit-converter/page": "app/tools/unit-converter/page.js",
   "/tools/url-converter/page": "app/tools/url-converter/page.js",
   "/tools/uuid-generator/page": "app/tools/uuid-generator/page.js",
+  "/tools/video-downloader/page": "app/tools/video-downloader/page.js",
   "/tools/word-counter/page": "app/tools/word-counter/page.js"
 }
