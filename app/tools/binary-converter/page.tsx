@@ -4,15 +4,21 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Cpu, Copy, Check, Repeat } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import LogoSVG from "@/components/ui/logo-svg";
 
 export default function BinaryConverter() {
     const [binary, setBinary] = useState("");
     const [decimal, setDecimal] = useState("");
     const [hex, setHex] = useState("");
+    const [loading, setLoading] = useState(false);
     const [copied, setCopied] = useState<string | null>(null);
 
-    const updateFromBinary = (val: string) => {
+    const updateFromBinary = async (val: string) => {
         setBinary(val);
+        setLoading(true);
+        // Add a small delay for premium feel
+        await new Promise(resolve => setTimeout(resolve, 300));
+
         if (/^[01]*$/.test(val) && val !== "") {
             const dec = parseInt(val, 2);
             setDecimal(dec.toString());
@@ -21,6 +27,7 @@ export default function BinaryConverter() {
             setDecimal("");
             setHex("");
         }
+        setLoading(false);
     };
 
     const copy = (text: string, type: string) => {
@@ -42,7 +49,10 @@ export default function BinaryConverter() {
                     </div>
                     <div>
                         <h1 className="text-3xl font-black text-white">Binary Converter</h1>
-                        <p className="text-[#94A3B8]">Convert between Binary, Decimal, and Hex.</p>
+                        <p className="text-[#94A3B8] flex items-center justify-center gap-2">
+                            Convert between Binary, Decimal, and Hex.
+                            {loading && <LogoSVG animate={true} size={16} />}
+                        </p>
                     </div>
                 </div>
 

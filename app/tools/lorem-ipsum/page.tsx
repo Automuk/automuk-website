@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import LogoSVG from "@/components/ui/logo-svg";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Copy, RefreshCw, FileText } from "lucide-react";
@@ -20,9 +21,14 @@ const fadeInUp = {
 
 export default function LoremIpsum() {
     const [paragraphs, setParagraphs] = useState(3);
+    const [loading, setLoading] = useState(false);
     const [generatedText, setGeneratedText] = useState("");
 
-    const generateText = () => {
+    const generateText = async () => {
+        setLoading(true);
+        // Add a small delay for premium feel
+        await new Promise(resolve => setTimeout(resolve, 600));
+
         let text = [];
         for (let i = 0; i < paragraphs; i++) {
             let sentenceCount = Math.floor(Math.random() * 4) + 4;
@@ -39,6 +45,7 @@ export default function LoremIpsum() {
             text.push(sentences.join(" "));
         }
         setGeneratedText(text.join("\n\n"));
+        setLoading(false);
     };
 
     const copyToClipboard = () => {
@@ -88,10 +95,22 @@ export default function LoremIpsum() {
                                 <div className="flex gap-4">
                                     <Button
                                         onClick={generateText}
+                                        disabled={loading}
                                         className="bg-primary hover:bg-primary/90 text-white h-11 px-8"
                                     >
-                                        <RefreshCw size={18} className="mr-2" />
-                                        Generate
+                                        {loading ? (
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-5 h-5">
+                                                    <LogoSVG animate={true} size={20} className="fill-white" />
+                                                </div>
+                                                <span>Generating...</span>
+                                            </div>
+                                        ) : (
+                                            <>
+                                                <RefreshCw size={18} className="mr-2" />
+                                                Generate
+                                            </>
+                                        )}
                                     </Button>
                                     <Button
                                         onClick={copyToClipboard}

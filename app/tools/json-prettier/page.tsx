@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import LogoSVG from "@/components/ui/logo-svg";
 
 const fadeInUp = {
     initial: { opacity: 0, y: 20 },
@@ -18,18 +19,27 @@ export default function JsonPrettier() {
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
     const [copied, setCopied] = useState(false);
 
-    const handleBeautify = () => {
+    const handleBeautify = async () => {
         try {
+            setLoading(true);
             setError("");
-            if (!input.trim()) return;
+            if (!input.trim()) {
+                setLoading(false);
+                return;
+            }
+            // Add a small delay for premium feel
+            await new Promise(resolve => setTimeout(resolve, 600));
             const parsed = JSON.parse(input);
             const formatted = JSON.stringify(parsed, null, 2);
             setOutput(formatted);
         } catch (err: any) {
             setError(err.message || "Invalid JSON format");
             setOutput("");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -90,10 +100,22 @@ export default function JsonPrettier() {
                             />
                             <Button
                                 onClick={handleBeautify}
+                                disabled={loading}
                                 className="mt-6 bg-[#3168FA] hover:bg-[#3168FA]/90 h-14 text-lg font-bold rounded-xl"
                             >
-                                <FontAwesomeIcon icon={faMagic} className="mr-2" />
-                                Beautify JSON
+                                {loading ? (
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-5 h-5">
+                                            <LogoSVG animate={true} size={20} className="fill-white" />
+                                        </div>
+                                        <span>Beautifying...</span>
+                                    </div>
+                                ) : (
+                                    <>
+                                        <FontAwesomeIcon icon={faMagic} className="mr-2" />
+                                        Beautify JSON
+                                    </>
+                                )}
                             </Button>
                         </Card>
                     </motion.div>

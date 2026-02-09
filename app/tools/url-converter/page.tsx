@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink, faCopy, faTrash, faCheck, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button";
+import LogoSVG from "@/components/ui/logo-svg";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -18,6 +19,7 @@ export default function UrlConverter() {
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
     const [mode, setMode] = useState<"encode" | "decode">("encode");
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [copied, setCopied] = useState(false);
 
@@ -25,12 +27,16 @@ export default function UrlConverter() {
         handleConvert();
     }, [input, mode]);
 
-    const handleConvert = () => {
+    const handleConvert = async () => {
         if (!input.trim()) {
             setOutput("");
             setError("");
             return;
         }
+
+        setLoading(true);
+        // Add a small delay for premium feel
+        await new Promise(resolve => setTimeout(resolve, 300));
 
         try {
             if (mode === "encode") {
@@ -46,6 +52,7 @@ export default function UrlConverter() {
             setError(mode === "decode" ? "Invalid URL encoded string" : err.message);
             setOutput("");
         }
+        setLoading(false);
     };
 
     const handleCopy = () => {
@@ -132,6 +139,7 @@ export default function UrlConverter() {
                                 <h3 className="text-white font-bold flex items-center gap-2">
                                     <FontAwesomeIcon icon={faCheck} className="text-[#3168FA]" />
                                     Result
+                                    {loading && <LogoSVG animate={true} size={16} className="ml-2" />}
                                 </h3>
                                 <Button
                                     variant="ghost"

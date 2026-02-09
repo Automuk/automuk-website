@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { WholeWord, Copy, Check, MessageSquare } from "lucide-react";
+import { WholeWord, Copy, Check } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import LogoSVG from "@/components/ui/logo-svg";
 
 export default function NumberToWords() {
     const [num, setNum] = useState("");
     const [words, setWords] = useState("");
+    const [loading, setLoading] = useState(false);
     const [copied, setCopied] = useState(false);
 
     const converter = (n: number | string): string => {
@@ -68,9 +70,20 @@ export default function NumberToWords() {
         return result.trim();
     };
 
-    const handleChange = (val: string) => {
+    const handleChange = async (val: string) => {
         setNum(val);
+        setLoading(true);
+        // Add a small delay for premium feel
+        await new Promise(resolve => setTimeout(resolve, 300));
         setWords(val ? converter(val) : "");
+        setLoading(false);
+    };
+
+    const handleCopy = () => {
+        if (!words) return;
+        navigator.clipboard.writeText(words);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
     };
 
     return (
@@ -86,7 +99,10 @@ export default function NumberToWords() {
                     </div>
                     <div>
                         <h1 className="text-3xl font-black text-white italic tracking-tighter uppercase">Number to Words</h1>
-                        <p className="text-[#94A3B8]">Instantly convert numbers into human-readable text.</p>
+                        <p className="text-[#94A3B8] flex items-center justify-center gap-2">
+                            Instantly convert numbers into human-readable text.
+                            {loading && <LogoSVG animate={true} size={16} />}
+                        </p>
                     </div>
                 </div>
 
@@ -104,8 +120,19 @@ export default function NumberToWords() {
 
                     <div className="relative group">
                         <label className="text-[10px] font-black uppercase tracking-widest text-[#475569] px-2 block mb-2">Word Representation</label>
-                        <div className="w-full min-h-32 bg-primary/5 border border-primary/20 rounded-3xl p-8 text-primary font-bold text-xl italic leading-relaxed">
-                            {words || "Enter a number above to see result..."}
+                        <div className="relative">
+                            <div className="w-full min-h-32 bg-primary/5 border border-primary/20 rounded-3xl p-8 text-primary font-bold text-xl italic leading-relaxed pr-20">
+                                {words || "Enter a number above to see result..."}
+                            </div>
+                            {words && (
+                                <button
+                                    onClick={handleCopy}
+                                    className="absolute top-4 right-4 p-4 rounded-2xl bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all duration-300"
+                                    title="Copy to clipboard"
+                                >
+                                    {copied ? <Check size={20} /> : <Copy size={20} />}
+                                </button>
+                            )}
                         </div>
                     </div>
                 </div>

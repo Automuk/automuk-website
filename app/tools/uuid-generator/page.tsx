@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import LogoSVG from "@/components/ui/logo-svg";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Copy, RefreshCw, Hash } from "lucide-react";
@@ -16,13 +17,19 @@ const fadeInUp = {
 
 export default function UUIDGenerator() {
     const [count, setCount] = useState(5);
+    const [loading, setLoading] = useState(false);
     const [uuids, setUuuids] = useState<string[]>([]);
 
-    const generateUUIDs = () => {
+    const generateUUIDs = async () => {
+        setLoading(true);
+        // Add a small delay for premium feel
+        await new Promise(resolve => setTimeout(resolve, 600));
+
         const newUuuids = Array.from({ length: Math.min(Math.max(count, 1), 100) }, () =>
             crypto.randomUUID()
         );
         setUuuids(newUuuids);
+        setLoading(false);
     };
 
     const copyAll = () => {
@@ -73,10 +80,22 @@ export default function UUIDGenerator() {
                                 <div className="flex gap-4">
                                     <Button
                                         onClick={generateUUIDs}
+                                        disabled={loading}
                                         className="bg-primary hover:bg-primary/90 text-white h-11 px-8"
                                     >
-                                        <RefreshCw size={18} className="mr-2" />
-                                        Generate
+                                        {loading ? (
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-5 h-5">
+                                                    <LogoSVG animate={true} size={20} className="fill-white" />
+                                                </div>
+                                                <span>Generating...</span>
+                                            </div>
+                                        ) : (
+                                            <>
+                                                <RefreshCw size={18} className="mr-2" />
+                                                Generate
+                                            </>
+                                        )}
                                     </Button>
                                     <Button
                                         onClick={copyAll}

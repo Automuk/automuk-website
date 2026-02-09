@@ -4,13 +4,19 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { GitCompare, Copy, Check, ArrowRightLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import LogoSVG from "@/components/ui/logo-svg";
 
 export default function DiffChecker() {
     const [text1, setText1] = useState("");
     const [text2, setText2] = useState("");
+    const [loading, setLoading] = useState(false);
     const [diffResult, setDiffResult] = useState<{ type: "added" | "removed" | "equal"; value: string }[] | null>(null);
 
-    const compare = () => {
+    const compare = async () => {
+        setLoading(true);
+        // Add a small delay for premium feel
+        await new Promise(resolve => setTimeout(resolve, 800));
+
         const lines1 = text1.split("\n");
         const lines2 = text2.split("\n");
         // Simple line-by-line diff for demonstration
@@ -26,6 +32,7 @@ export default function DiffChecker() {
             }
         }
         setDiffResult(result);
+        setLoading(false);
     };
 
     return (
@@ -63,8 +70,19 @@ export default function DiffChecker() {
                 </div>
 
                 <div className="flex justify-center">
-                    <Button onClick={compare} className="h-14 px-12 rounded-2xl gap-2 text-lg font-bold">
-                        Compare Now <ArrowRightLeft size={20} />
+                    <Button onClick={compare} disabled={loading} className="h-14 px-12 rounded-2xl gap-2 text-lg font-bold">
+                        {loading ? (
+                            <div className="flex items-center gap-2">
+                                <div className="w-5 h-5">
+                                    <LogoSVG animate={true} size={20} className="fill-white" />
+                                </div>
+                                <span>Comparing...</span>
+                            </div>
+                        ) : (
+                            <>
+                                Compare Now <ArrowRightLeft size={20} />
+                            </>
+                        )}
                     </Button>
                 </div>
 
@@ -76,8 +94,8 @@ export default function DiffChecker() {
                     >
                         {diffResult.map((line, i) => (
                             <div key={i} className={`flex gap-4 p-1 rounded ${line.type === "added" ? "bg-green-500/10 text-green-400" :
-                                    line.type === "removed" ? "bg-red-500/10 text-red-400" :
-                                        "text-[#94A3B8]"
+                                line.type === "removed" ? "bg-red-500/10 text-red-400" :
+                                    "text-[#94A3B8]"
                                 }`}>
                                 <span className="w-6 shrink-0 opacity-40">
                                     {line.type === "added" ? "+" : line.type === "removed" ? "-" : " "}

@@ -4,13 +4,19 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FileCode, FileSpreadsheet, Copy, Check, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import LogoSVG from "@/components/ui/logo-svg";
 
 export default function CSVToJSON() {
     const [csv, setCsv] = useState("");
     const [json, setJson] = useState("");
+    const [loading, setLoading] = useState(false);
     const [copied, setCopied] = useState(false);
 
-    const convert = () => {
+    const convert = async () => {
+        setLoading(true);
+        // Add a small delay for premium feel
+        await new Promise(resolve => setTimeout(resolve, 700));
+
         try {
             const lines = csv.split("\n");
             const result = [];
@@ -29,6 +35,8 @@ export default function CSVToJSON() {
             setJson(JSON.stringify(result, null, 2));
         } catch (e) {
             setJson("Error: Invalid CSV format.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -68,8 +76,17 @@ export default function CSVToJSON() {
                     </div>
                 </div>
 
-                <Button onClick={convert} className="w-full h-16 rounded-2xl text-lg font-bold bg-orange-500 hover:bg-orange-600">
-                    Convert Data
+                <Button onClick={convert} disabled={loading} className="w-full h-16 rounded-2xl text-lg font-bold bg-orange-500 hover:bg-orange-600">
+                    {loading ? (
+                        <div className="flex items-center gap-2">
+                            <div className="w-6 h-6">
+                                <LogoSVG animate={true} size={24} className="fill-white" />
+                            </div>
+                            <span>Converting...</span>
+                        </div>
+                    ) : (
+                        "Convert Data"
+                    )}
                 </Button>
             </div>
         </div>

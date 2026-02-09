@@ -5,14 +5,20 @@ import { motion } from "framer-motion";
 import { ShieldCheck, Copy, Check, Lock } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import LogoSVG from "@/components/ui/logo-svg";
 
 export default function HashGenerator() {
     const [input, setInput] = useState("");
     const [hashes, setHashes] = useState({ sha256: "", md5: "" });
+    const [loading, setLoading] = useState(false);
     const [copied, setCopied] = useState<string | null>(null);
 
     const generate = async () => {
         if (!input) return;
+        setLoading(true);
+        // Add a small delay for premium feel
+        await new Promise(resolve => setTimeout(resolve, 600));
+
         // SHA-256 using Crypto API
         const msgBuffer = new TextEncoder().encode(input);
         const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
@@ -21,6 +27,7 @@ export default function HashGenerator() {
 
         // Placeholder for MD5 since it's not in SubtleCrypto (would normally use a lib)
         setHashes({ sha256, md5: "Click to generate..." });
+        setLoading(false);
     };
 
     const copy = (text: string, type: string) => {
@@ -48,8 +55,19 @@ export default function HashGenerator() {
                             placeholder="Enter text to hash..."
                             className="w-full h-40 bg-white/[0.03] border border-white/10 rounded-3xl p-6 text-white font-mono placeholder:text-[#475569] focus:border-primary/50 transition-all outline-none resize-none"
                         />
-                        <Button onClick={generate} className="w-full h-14 rounded-2xl font-bold gap-2">
-                            Generate Hashes <Lock size={18} />
+                        <Button onClick={generate} disabled={loading} className="w-full h-14 rounded-2xl font-bold gap-2">
+                            {loading ? (
+                                <div className="flex items-center gap-2">
+                                    <div className="w-5 h-5">
+                                        <LogoSVG animate={true} size={20} className="fill-white" />
+                                    </div>
+                                    <span>Generating Hashes...</span>
+                                </div>
+                            ) : (
+                                <>
+                                    Generate Hashes <Lock size={18} />
+                                </>
+                            )}
                         </Button>
                     </div>
 

@@ -4,13 +4,19 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Database, Copy, Check, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import LogoSVG from "@/components/ui/logo-svg";
 
 export default function SQLFormatter() {
     const [sql, setSql] = useState("");
     const [formatted, setFormatted] = useState("");
+    const [loading, setLoading] = useState(false);
     const [copied, setCopied] = useState(false);
 
-    const format = () => {
+    const format = async () => {
+        setLoading(true);
+        // Add a small delay for premium feel
+        await new Promise(resolve => setTimeout(resolve, 600));
+
         // Simple placeholder formatter logic (removes extra spaces, basic upper casing)
         const keywords = ["SELECT", "FROM", "WHERE", "GROUP BY", "ORDER BY", "JOIN", "LEFT JOIN", "INNER JOIN", "INSERT", "UPDATE", "DELETE", "AND", "OR"];
         let result = sql.replace(/\s+/g, " ");
@@ -19,6 +25,7 @@ export default function SQLFormatter() {
             result = result.replace(regex, `\n${kw}`);
         });
         setFormatted(result.trim());
+        setLoading(false);
     };
 
     return (
@@ -44,8 +51,19 @@ export default function SQLFormatter() {
                         className="w-full h-64 bg-white/5 border border-white/10 rounded-2xl p-8 text-white font-mono placeholder:text-[#475569] focus:border-primary/40 transition-all outline-none resize-none text-lg"
                     />
                     <div className="flex justify-center">
-                        <Button onClick={format} className="h-14 px-10 rounded-xl gap-3 font-black uppercase tracking-widest text-xs">
-                            Format Query <Terminal size={18} />
+                        <Button onClick={format} disabled={loading} className="h-14 px-10 rounded-xl gap-3 font-black uppercase tracking-widest text-xs">
+                            {loading ? (
+                                <div className="flex items-center gap-2">
+                                    <div className="w-5 h-5">
+                                        <LogoSVG animate={true} size={20} className="fill-white" />
+                                    </div>
+                                    <span>Formatting...</span>
+                                </div>
+                            ) : (
+                                <>
+                                    Format Query <Terminal size={18} />
+                                </>
+                            )}
                         </Button>
                     </div>
                 </div>

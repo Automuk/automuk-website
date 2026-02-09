@@ -50,7 +50,7 @@ export default function Stopwatch() {
                     >
                         <Timer size={48} />
                     </motion.div>
-                    <div className="text-[6rem] md:text-[8rem] font-black font-mono text-white tracking-widest tabular-nums leading-none">
+                    <div className="text-[3.5rem] md:text-[6rem] font-black font-mono text-white tracking-widest tabular-nums leading-none">
                         {formatTime(time)}
                     </div>
                 </div>

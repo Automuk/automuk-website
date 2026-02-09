@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { QRCodeSVG } from "qrcode.react";
+import LogoSVG from "@/components/ui/logo-svg";
 
 const fadeInUp = {
     initial: { opacity: 0, y: 20 },
@@ -17,11 +18,16 @@ const fadeInUp = {
 
 export default function QrGenerator() {
     const [value, setValue] = useState("");
+    const [loading, setLoading] = useState(false);
     const qrRef = useRef<HTMLDivElement>(null);
 
-    const downloadQRCode = () => {
+    const downloadQRCode = async () => {
         const svg = qrRef.current?.querySelector("svg");
         if (!svg) return;
+
+        setLoading(true);
+        // Add a small delay for premium feel
+        await new Promise(resolve => setTimeout(resolve, 800));
 
         const svgData = new XMLSerializer().serializeToString(svg);
         const canvas = document.createElement("canvas");
@@ -38,6 +44,7 @@ export default function QrGenerator() {
             downloadLink.download = `automuk-qr-${Date.now()}.png`;
             downloadLink.href = pngFile;
             downloadLink.click();
+            setLoading(false);
         };
 
         img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
@@ -81,11 +88,22 @@ export default function QrGenerator() {
 
                             <Button
                                 onClick={downloadQRCode}
-                                disabled={!value}
+                                disabled={!value || loading}
                                 className="mt-auto bg-[#3168FA] hover:bg-[#3168FA]/90 h-14 text-lg font-bold rounded-xl"
                             >
-                                <FontAwesomeIcon icon={faDownload} className="mr-2" />
-                                Download PNG
+                                {loading ? (
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-5 h-5">
+                                            <LogoSVG animate={true} size={20} className="fill-white" />
+                                        </div>
+                                        <span>Preparing Download...</span>
+                                    </div>
+                                ) : (
+                                    <>
+                                        <FontAwesomeIcon icon={faDownload} className="mr-2" />
+                                        Download PNG
+                                    </>
+                                )}
                             </Button>
                         </Card>
                     </motion.div>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Radio, Copy, Check, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import LogoSVG from "@/components/ui/logo-svg";
 
 const MORSE_MAP: Record<string, string> = {
     'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
@@ -18,12 +19,18 @@ const MORSE_MAP: Record<string, string> = {
 export default function MorseCode() {
     const [text, setText] = useState("");
     const [morse, setMorse] = useState("");
+    const [loading, setLoading] = useState(false);
     const [copied, setCopied] = useState(false);
 
-    const translate = (val: string) => {
+    const translate = async (val: string) => {
         setText(val);
+        setLoading(true);
+        // Add a small delay for premium feel
+        await new Promise(resolve => setTimeout(resolve, 300));
+
         const translated = val.toUpperCase().split("").map(char => MORSE_MAP[char] || "").join(" ");
         setMorse(translated);
+        setLoading(false);
     };
 
     const copy = () => {
@@ -45,7 +52,10 @@ export default function MorseCode() {
                     </div>
                     <div>
                         <h1 className="text-4xl font-black text-white tracking-tighter">Morse Code</h1>
-                        <p className="text-[#94A3B8] font-medium italic">Encrypt and decrypt messages using international morse code.</p>
+                        <p className="text-[#94A3B8] font-medium italic flex items-center gap-2">
+                            Encrypt and decrypt messages using international morse code.
+                            {loading && <LogoSVG animate={true} size={16} />}
+                        </p>
                     </div>
                 </div>
 

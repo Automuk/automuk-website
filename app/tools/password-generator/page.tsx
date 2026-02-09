@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Copy, RefreshCw, ShieldCheck, ShieldAlert, Shield } from "lucide-react";
+import LogoSVG from "@/components/ui/logo-svg";
 
 const fadeInUp = {
     initial: { opacity: 0, y: 20 },
@@ -20,9 +21,14 @@ export default function PasswordGenerator() {
     const [includeUppercase, setIncludeUppercase] = useState(true);
     const [includeNumbers, setIncludeNumbers] = useState(true);
     const [includeSymbols, setIncludeSymbols] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [copied, setCopied] = useState(false);
 
-    const generatePassword = useCallback(() => {
+    const generatePassword = useCallback(async () => {
+        setLoading(true);
+        // Add a small delay for premium feel
+        await new Promise(resolve => setTimeout(resolve, 500));
+
         const lowercase = "abcdefghijklmnopqrstuvwxyz";
         const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         const numbers = "0123456789";
@@ -39,6 +45,7 @@ export default function PasswordGenerator() {
             generatedPassword += charset[randomIndex];
         }
         setPassword(generatedPassword);
+        setLoading(false);
     }, [length, includeUppercase, includeNumbers, includeSymbols]);
 
     useEffect(() => {
@@ -109,9 +116,16 @@ export default function PasswordGenerator() {
                                     <Button
                                         onClick={generatePassword}
                                         variant="ghost"
+                                        disabled={loading}
                                         className="h-full px-4 text-[#94A3B8] hover:text-white"
                                     >
-                                        <RefreshCw size={24} />
+                                        {loading ? (
+                                            <div className="w-6 h-6">
+                                                <LogoSVG animate={true} size={24} className="fill-[#94A3B8]" />
+                                            </div>
+                                        ) : (
+                                            <RefreshCw size={24} />
+                                        )}
                                     </Button>
                                     <Button
                                         onClick={copyToClipboard}
@@ -158,8 +172,8 @@ export default function PasswordGenerator() {
                                             <label
                                                 key={opt.label}
                                                 className={`flex items-center justify-between p-4 rounded-xl border cursor-pointer transition-all ${opt.state
-                                                        ? "border-[#3168FA] bg-[#3168FA]/10 text-white"
-                                                        : "border-[#334155] bg-transparent text-[#94A3B8] hover:border-[#475569]"
+                                                    ? "border-[#3168FA] bg-[#3168FA]/10 text-white"
+                                                    : "border-[#334155] bg-transparent text-[#94A3B8] hover:border-[#475569]"
                                                     }`}
                                             >
                                                 <span className="font-bold text-sm font-heading">{opt.label}</span>
