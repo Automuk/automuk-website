@@ -1,3 +1,0 @@
-module.exports=[32829,a=>{"use strict";var b=a.i(7997);function c({children:a}){return(0,b.jsx)(b.Fragment,{children:a})}a.s(["default",()=>c,"metadata",0,{title:"About Us",description:"Learn about Automuk, an AI & Automation freelance studio dedicated to helping businesses grow through intelligent technology and streamlined workflows.",keywords:["about automuk","AI studio","automation studio","freelance AI developer","automation agency"]}])}];
-
-//# sourceMappingURL=app_about_layout_tsx_ab919c80._.js.map
