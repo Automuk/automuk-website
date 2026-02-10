@@ -128,7 +128,7 @@ export default function ImageConverter() {
     const compressionRatio = convertedSize > 0 ? ((1 - convertedSize / originalSize) * 100).toFixed(1) : 0;
 
     return (
-        <div className="min-h-screen bg-[#00020C] pt-32 md:pt-40 pb-20 px-4">
+        <div className="min-h-screen bg-[#00020C] pt-32 md:pt-10 md:pt-40 pb-20 px-4">
             <div className="max-w-6xl mx-auto">
                 <motion.div
                     initial="initial"

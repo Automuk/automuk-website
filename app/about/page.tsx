@@ -34,7 +34,11 @@ export default function AboutPage() {
                                     "Efficiency is doing things right; effectiveness is doing the right things."
                                 </blockquote>
                                 <div className="flex items-center space-x-5">
-                                    <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-primary to-secondary shadow-[0_0_20px_rgba(49,104,250,0.4)]" />
+                                    <img
+                                        src="https://cdn.autom.uk/founder.jpeg"
+                                        alt="Automuk Founder"
+                                        className="w-14 h-14 rounded-full object-cover"
+                                    />
                                     <div>
                                         <div className="text-lg font-bold">The Founder</div>
                                         <div className="text-muted-foreground font-medium">Automuk Studio</div>

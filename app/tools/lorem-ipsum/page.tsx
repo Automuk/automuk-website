@@ -57,7 +57,7 @@ export default function LoremIpsum() {
     });
 
     return (
-        <div className="min-h-screen bg-[#00020C] pt-40 pb-20 px-4">
+        <div className="min-h-screen bg-[#00020C] pt-10 md:pt-40 pb-20 px-4">
             <div className="max-w-4xl mx-auto">
                 <motion.div
                     initial="initial"

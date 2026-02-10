@@ -31,7 +31,7 @@ export default function PercentageCalculator() {
     const p3res = (p3diff / Math.abs(parseFloat(p3x)) * 100).toFixed(2);
 
     return (
-        <div className="min-h-screen bg-[#00020C] pt-40 pb-20 px-4">
+        <div className="min-h-screen bg-[#00020C] pt-10 md:pt-40 pb-20 px-4">
             <div className="max-w-4xl mx-auto">
                 <motion.div
                     initial="initial"

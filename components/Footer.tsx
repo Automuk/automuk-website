@@ -14,7 +14,7 @@ import {
 
 export default function Footer() {
     return (
-        <footer className="bg-[#00020C] border-t border-[#334155] py-20 px-4">
+        <footer className="bg-[#00020C] border-t border-[#334155] py-20 px-4 pb-10 sm:pb-20">
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
                     <div className="col-span-1 md:col-span-2 space-y-6">

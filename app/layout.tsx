@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/logo.svg",
+    icon: "https://cdn.autom.uk/logo.svg",
   },
 };
 

@@ -9,6 +9,7 @@ import Testimonials from "@/components/Testimonials";
 import HeroAnimation from "@/components/HeroAnimation";
 import BentoFlex from "@/components/BentoFlex";
 import LogicFlow from "@/components/LogicFlow";
+import EngagementModels from "@/components/EngagementModels";
 
 export const metadata: Metadata = {
   title: "Automuk | AI Agents, Workflow Automation & Custom B2B Software",
@@ -117,6 +118,9 @@ export default function Home() {
 
       {/* Expertise Section (Client Component) */}
       <BentoFlex />
+
+      {/* Engagement Models Section (Client Component) */}
+      <EngagementModels />
 
       {/* Integrations Grid (Client Component) */}
       <IntegrationsGrid />

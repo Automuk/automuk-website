@@ -11,13 +11,13 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const MongoDBIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-12 h-12 fill-current"><path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115c-.28-.394-.53-.954-.735-1.44c-.036.495-.055.685-.523 1.184c-.723.566-4.438 3.682-4.74 10.02c-.282 5.912 4.27 9.435 4.888 9.884l.07.05A74 74 0 0 1 11.91 24h.481a29 29 0 0 1 .51-3.07c.417-.296.604-.463.85-.693a11.34 11.34 0 0 0 3.639-8.464c.01-.814-.103-1.662-.197-2.218m-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695c-.381-.045-.765-1.76-.765-2.405" /></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-12 h-12 fill-[#47A248]"><path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115c-.28-.394-.53-.954-.735-1.44c-.036.495-.055.685-.523 1.184c-.723.566-4.438 3.682-4.74 10.02c-.282 5.912 4.27 9.435 4.888 9.884l.07.05A74 74 0 0 1 11.91 24h.481a29 29 0 0 1 .51-3.07c.417-.296.604-.463.85-.693a11.34 11.34 0 0 0 3.639-8.464c.01-.814-.103-1.662-.197-2.218m-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695c-.381-.045-.765-1.76-.765-2.405" /></svg>
 );
 
 const AzureIcon = () => (
-    <svg viewBox="0 0 128 128" className="w-12 h-12 fill-current">
-        <path d="m14.53 91.2 16.71 19.38L80.52 11.52H43.1L14.53 91.2Z" />
-        <path d="M113.47 91.2 96.76 110.58 36.42 11.52H80.52L113.47 91.2Z" opacity="0.8" />
+    <svg viewBox="0 0 128 128" className="w-12 h-12">
+        <path d="m14.53 91.2 16.71 19.38L80.52 11.52H43.1L14.53 91.2Z" fill="#0089D6" />
+        <path d="M113.47 91.2 96.76 110.58 36.42 11.52H80.52L113.47 91.2Z" opacity="0.8" fill="#0089D6" />
     </svg>
 );
 
@@ -56,33 +56,33 @@ export default function IntegrationsGrid() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: i * 0.1 }}
                                 viewport={{ once: true }}
-                                className="glass bg-white/5 border-white/5 p-6 md:p-10 rounded-[1.5rem] md:rounded-[2rem] flex flex-col items-center justify-center group transition-all duration-500 hover:border-primary/20 hover:-translate-y-2 cursor-pointer relative overflow-hidden"
+                                className="glass bg-white/5 border-primary/20 -translate-y-1 md:border-white/5 p-6 md:p-10 rounded-[1.5rem] md:rounded-[2rem] flex flex-col items-center justify-center group transition-all duration-500 md:translate-y-0 md:hover:border-primary/20 md:hover:-translate-y-2 cursor-pointer relative overflow-hidden"
                                 style={{ '--brand-color': partner.brandColor } as any}
                             >
                                 {/* Blurred Gradient Background on Hover */}
                                 <div
-                                    className="absolute inset-0 opacity-0 group-hover:opacity-15 transition-opacity duration-700 pointer-events-none"
+                                    className="absolute inset-0 opacity-15 md:opacity-0 md:group-hover:opacity-15 transition-opacity duration-700 pointer-events-none"
                                     style={{
                                         background: `radial-gradient(circle at 50% 0%, var(--brand-color), transparent 70%)`,
                                         filter: 'blur(40px)'
                                     }}
                                 />
 
-                                <div className="relative z-10 flex flex-col items-center gap-4 transition-transform duration-500 group-hover:scale-110">
+                                <div className="relative z-10 flex flex-col items-center gap-4 transition-transform duration-500 scale-110 md:scale-100 md:group-hover:scale-110">
                                     {partner.type === "fa" ? (
-                                        <div className="text-white/10 transition-colors duration-500 group-hover:text-[var(--brand-color)]">
+                                        <div className="text-[var(--brand-color)] md:text-white/10 transition-colors duration-500 md:group-hover:text-[var(--brand-color)]">
                                             <FontAwesomeIcon
                                                 icon={partner.icon as any}
                                                 className="text-5xl"
                                             />
                                         </div>
                                     ) : (
-                                        <div className="w-12 h-12 transition-all duration-500 grayscale opacity-20 group-hover:grayscale-0 group-hover:opacity-100 group-hover:text-[var(--brand-color)]">
+                                        <div className="w-12 h-12 transition-all duration-500 grayscale-0 opacity-100 md:grayscale md:opacity-20 md:group-hover:grayscale-0 md:group-hover:opacity-100 group-hover:text-[var(--brand-color)]">
                                             {/* @ts-ignore */}
                                             <partner.icon />
                                         </div>
                                     )}
-                                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase opacity-0 group-hover:opacity-40 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 text-white">
+                                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase opacity-40 translate-y-0 md:opacity-0 md:translate-y-2 md:group-hover:opacity-40 md:group-hover:translate-y-0 transition-all duration-500 transform text-white">
                                         {partner.name}
                                     </span>
                                 </div>
