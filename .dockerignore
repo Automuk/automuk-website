@@ -1,0 +1,11 @@
+node_modules
+.next
+.git
+.gitignore
+*.md
+Dockerfile
+docker-compose.yml
+.eslint.config.mjs
+postcss.config.mjs
+tailwind.config.ts
+tsconfig.json
