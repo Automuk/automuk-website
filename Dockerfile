@@ -23,6 +23,15 @@ RUN npm run build
 FROM node:20-slim AS runner
 WORKDIR /app
 
+# Install dependencies for yt-dlp and ffmpeg
+RUN apt-get update && apt-get install -y \
+    ffmpeg \
+    python3 \
+    curl \
+    && curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp \
+    && chmod a+rx /usr/local/bin/yt-dlp \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 ENV NODE_ENV production
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED 1
