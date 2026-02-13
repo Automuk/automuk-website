@@ -7,9 +7,7 @@ import {
     faEnvelope
 } from "@fortawesome/free-solid-svg-icons";
 import {
-    faLinkedin,
-    faXTwitter,
-    faGithub
+    faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
@@ -51,6 +49,12 @@ export default function Footer() {
                         <p className="text-[#94A3B8] max-w-sm leading-relaxed text-lg font-heading">
                             We build custom AI agents and autonomous workflows that help businesses scale efficiently by eliminating human overhead.
                         </p>
+                        <div className="flex items-center gap-3 text-[#94A3B8] hover:text-white transition-colors group w-fit">
+                            <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-primary transition-colors">
+                                <FontAwesomeIcon icon={faEnvelope} />
+                            </div>
+                            <a href="mailto:arijit@autom.uk" className="font-heading">arijit@autom.uk</a>
+                        </div>
                     </div>
 
                     <div>
@@ -75,10 +79,8 @@ export default function Footer() {
                         <h3 className="text-sm font-bold text-white tracking-[0.2em] uppercase mb-6 font-heading">Stay Connected</h3>
                         <div className="flex gap-6">
                             {[
-                                { icon: faXTwitter, href: "#", color: "hover:text-white" },
-                                { icon: faLinkedin, href: "#", color: "hover:text-[#3168FA]" },
-                                { icon: faGithub, href: "#", color: "hover:text-white" },
-                                { icon: faEnvelope, href: "mailto:hello@autom.uk", color: "hover:text-[#3168FA]" }
+                                { icon: faLinkedin, href: "https://www.linkedin.com/company/automuk", color: "hover:text-[#3168FA]" },
+                                { icon: faEnvelope, href: "mailto:arijit@autom.uk", color: "hover:text-[#3168FA]" }
                             ].map((social, i) => (
                                 <Link
                                     key={i}

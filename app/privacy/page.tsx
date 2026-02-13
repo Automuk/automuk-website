@@ -56,7 +56,7 @@ export default function PrivacyPage() {
                         <section>
                             <h2 className="text-2xl font-bold text-white mb-4">Contact Us</h2>
                             <p>
-                                If you have any questions about this Privacy Policy, please contact us at hello@autom.uk.
+                                If you have any questions about this Privacy Policy, please contact us at arijit@autom.uk.
                             </p>
                         </section>
 
