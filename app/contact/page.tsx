@@ -9,9 +9,7 @@ import {
     faPaperPlane
 } from "@fortawesome/free-solid-svg-icons";
 import {
-    faLinkedin,
-    faXTwitter,
-    faGithub
+    faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -35,12 +33,14 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="flex flex-col w-full bg-[#00020C] min-h-screen">
-            <section className="relative pt-32 pb-32 px-4">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#4F46E5]/10 blur-[120px] rounded-full -z-10" />
+        <div className="flex flex-col w-full bg-background min-h-screen">
+            <section className="relative pt-32 pb-32 px-4 overflow-hidden">
+                {/* Background Accents */}
+                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/10 blur-[150px] rounded-full -z-10 animate-float" />
+                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/10 blur-[130px] rounded-full -z-10 animate-float [animation-delay:-3s]" />
 
                 <div className="max-w-7xl mx-auto">
-                    <div className="grid lg:grid-cols-2 gap-20 items-start">
+                    <div className="grid lg:grid-cols-2 gap-20 items-center">
 
                         {/* --- LEFT SIDE: INFO --- */}
                         <motion.div
@@ -50,49 +50,47 @@ export default function ContactPage() {
                             className="space-y-12"
                         >
                             <motion.div variants={fadeInUp}>
-                                <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-tight text-white">
+                                <h1 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-tight text-white font-heading">
                                     Let’s Automate <br />
-                                    <span className="bg-gradient-to-r from-[#4F46E5] to-[#22D3EE] bg-clip-text text-transparent italic">
+                                    <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent italic bg-[length:200%_auto] animate-gradient-flow">
                                         Your Future.
                                     </span>
                                 </h1>
-                                <p className="text-xl text-[#94A3B8] leading-relaxed max-w-xl">
+                                <p className="text-xl text-muted-foreground leading-relaxed max-w-xl font-heading">
                                     Have a complex bottleneck? Need an AI agent with specific traits? Tell us your goal, and we'll build the engine to reach it.
                                 </p>
                             </motion.div>
 
                             <motion.div variants={fadeInUp} className="space-y-8">
                                 <div className="flex items-start gap-6 group">
-                                    <div className="w-12 h-12 rounded-xl bg-[#4F46E5]/10 border border-[#4F46E5]/20 flex items-center justify-center text-[#22D3EE] group-hover:bg-[#4F46E5]/20 transition-colors">
-                                        <FontAwesomeIcon icon={faEnvelope} />
+                                    <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-[0_0_20px_rgba(49,104,250,0.2)]">
+                                        <FontAwesomeIcon icon={faEnvelope} className="text-xl" />
                                     </div>
                                     <div>
-                                        <h3 className="text-white font-bold text-lg mb-1">Email Us</h3>
-                                        <p className="text-[#94A3B8]">hello@autom.uk</p>
+                                        <h3 className="text-white font-black text-lg mb-1 uppercase tracking-wider">Email Us</h3>
+                                        <p className="text-muted-foreground font-heading">arijit@autom.uk</p>
                                     </div>
                                 </div>
 
                                 <div className="flex items-start gap-6 group">
-                                    <div className="w-12 h-12 rounded-xl bg-[#4F46E5]/10 border border-[#4F46E5]/20 flex items-center justify-center text-[#22D3EE] group-hover:bg-[#4F46E5]/20 transition-colors">
-                                        <FontAwesomeIcon icon={faClock} />
+                                    <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500 shadow-[0_0_20px_rgba(206,119,251,0.2)]">
+                                        <FontAwesomeIcon icon={faClock} className="text-xl" />
                                     </div>
                                     <div>
-                                        <h3 className="text-white font-bold text-lg mb-1">Response Time</h3>
-                                        <p className="text-[#94A3B8]">Within 24 business hours</p>
+                                        <h3 className="text-white font-black text-lg mb-1 uppercase tracking-wider">Response Time</h3>
+                                        <p className="text-muted-foreground font-heading">Within 24 business hours</p>
                                     </div>
                                 </div>
                             </motion.div>
 
                             <motion.div variants={fadeInUp} className="pt-8">
-                                <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Connect with us</h4>
+                                <h4 className="text-white font-black mb-6 uppercase tracking-[0.2em] text-[10px] opacity-50">Connect with us</h4>
                                 <div className="flex gap-4">
                                     {[
-                                        { icon: faLinkedin, href: "#" },
-                                        { icon: faXTwitter, href: "#" },
-                                        { icon: faGithub, href: "#" }
+                                        { icon: faLinkedin, href: "https://www.linkedin.com/company/automuk", color: "hover:bg-[#0077b5]" },
                                     ].map((social, i) => (
-                                        <a key={i} href={social.href} className="w-12 h-12 rounded-full border border-[#334155] flex items-center justify-center text-[#94A3B8] hover:text-white hover:border-[#4F46E5] hover:bg-[#4F46E5]/10 transition-all">
-                                            <FontAwesomeIcon icon={social.icon} size="lg" />
+                                        <a key={i} href={social.href} className={`w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-muted-foreground ${social.color} hover:border-transparent transition-all duration-300 shadow-xl group`}>
+                                            <FontAwesomeIcon icon={social.icon} size="lg" className="group-hover:scale-110 transition-transform" />
                                         </a>
                                     ))}
                                 </div>
@@ -102,43 +100,46 @@ export default function ContactPage() {
                         {/* --- RIGHT SIDE: FORM --- */}
                         <motion.div
                             initial={{ opacity: 0, x: 30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
                         >
-                            <Card className="glass bg-[#1E293B]/40 border-[#334155] p-8 md:p-12 shadow-2xl relative overflow-hidden">
-                                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#4F46E5] to-[#22D3EE]" />
+                            <Card className="glass bg-card/40 border-white/10 p-8 md:p-14 rounded-[3rem] md:rounded-[4rem] shadow-2xl relative overflow-hidden group">
 
-                                <form onSubmit={handleSubmit} className="space-y-6">
-                                    <div className="grid md:grid-cols-2 gap-6">
-                                        <div className="space-y-2">
-                                            <label className="text-xs font-bold text-[#94A3B8] uppercase tracking-widest">Name</label>
-                                            <Input placeholder="John Doe" className="bg-[#020617] border-[#334155] h-14 rounded-xl focus:ring-[#4F46E5]" required />
+                                <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
+                                    <div className="grid md:grid-cols-2 gap-8">
+                                        <div className="space-y-3">
+                                            <label className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] ml-1">Full Name</label>
+                                            <Input placeholder="John Doe" className="bg-background/50 border-white/5 h-16 rounded-2xl focus:ring-primary focus:border-primary/50 text-white placeholder:text-muted-foreground/30 transition-all" required />
                                         </div>
-                                        <div className="space-y-2">
-                                            <label className="text-xs font-bold text-[#94A3B8] uppercase tracking-widest">Email</label>
-                                            <Input type="email" placeholder="john@company.com" className="bg-[#020617] border-[#334155] h-14 rounded-xl focus:ring-[#4F46E5]" required />
+                                        <div className="space-y-3">
+                                            <label className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] ml-1">Email Address</label>
+                                            <Input type="email" placeholder="john@company.com" className="bg-background/50 border-white/5 h-16 rounded-2xl focus:ring-primary focus:border-primary/50 text-white placeholder:text-muted-foreground/30 transition-all" required />
                                         </div>
                                     </div>
 
-                                    <div className="space-y-2">
-                                        <label className="text-xs font-bold text-[#94A3B8] uppercase tracking-widest">Company</label>
-                                        <Input placeholder="Acme Inc." className="bg-[#020617] border-[#334155] h-14 rounded-xl focus:ring-[#4F46E5]" />
+                                    <div className="space-y-3">
+                                        <label className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] ml-1">Company / Organization</label>
+                                        <Input placeholder="Acme Inc." className="bg-background/50 border-white/5 h-16 rounded-2xl focus:ring-primary focus:border-primary/50 text-white placeholder:text-muted-foreground/30 transition-all" />
                                     </div>
 
-                                    <div className="space-y-2">
-                                        <label className="text-xs font-bold text-[#94A3B8] uppercase tracking-widest">How can we help?</label>
-                                        <Textarea placeholder="Tell us about your biggest bottleneck..." className="bg-[#020617] border-[#334155] min-h-[160px] rounded-xl focus:ring-[#4F46E5] p-4" required />
+                                    <div className="space-y-3">
+                                        <label className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] ml-1">How can we help?</label>
+                                        <Textarea placeholder="Tell us about your biggest bottleneck..." className="bg-background/50 border-white/5 min-h-[180px] rounded-3xl focus:ring-primary focus:border-primary/50 text-white p-6 placeholder:text-muted-foreground/30 transition-all resize-none" required />
                                     </div>
 
-                                    <Button type="submit" className="w-full bg-[#4F46E5] hover:bg-[#4F46E5]/90 py-8 text-xl font-bold rounded-xl group transition-all">
+                                    <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white py-10 text-xl font-black rounded-3xl group transition-all shadow-[0_20px_40px_rgba(49,104,250,0.3)] hover:scale-[1.02] active:scale-95">
                                         Send Message
-                                        <FontAwesomeIcon icon={faPaperPlane} className="ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                        <FontAwesomeIcon icon={faPaperPlane} className="ml-4 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />
                                     </Button>
 
-                                    <p className="text-center text-[#94A3B8] text-xs">
-                                        By submitting, you agree to our <a href="#" className="underline">Privacy Policy</a>.
+                                    <p className="text-center text-muted-foreground text-[10px] items-center flex justify-center gap-2 font-black uppercase tracking-widest opacity-40">
+                                        Secured by <span className="text-primary">Automuk</span> Technology
                                     </p>
                                 </form>
+
+                                {/* Background Glow on Hover */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
                             </Card>
                         </motion.div>
 
