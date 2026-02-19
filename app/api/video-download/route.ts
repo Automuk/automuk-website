@@ -4,6 +4,32 @@ import { promisify } from 'util';
 
 const execAsync = promisify(exec);
 
+function execBufferWithTimeout(command: string, options: any, timeoutMs: number): Promise<{ stdout: Buffer }> {
+    return new Promise((resolve, reject) => {
+        const child = exec(command, options, (error, stdout) => {
+            if (error) {
+                reject(error);
+            } else {
+                resolve({ stdout: stdout as Buffer });
+            }
+        });
+
+        const timer = setTimeout(() => {
+            child.kill('SIGTERM');
+            reject(new Error('Download timed out'));
+        }, timeoutMs);
+
+        child.on('exit', () => clearTimeout(timer));
+    });
+}
+
+function detectPlatform(url: string): string {
+    if (url.includes('youtube.com') || url.includes('youtu.be')) return 'youtube';
+    if (url.includes('instagram.com')) return 'instagram';
+    if (url.includes('twitch.tv')) return 'twitch';
+    return 'unknown';
+}
+
 export async function POST(request: NextRequest) {
     try {
         const { url, formatId } = await request.json();
@@ -25,26 +51,36 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Build yt-dlp command
+        const platform = detectPlatform(url);
         const format = formatId || 'best';
-        const command = `yt-dlp -f ${format} --no-warnings --print filename -o "%(title)s.%(ext)s" "${url}"`;
+
+        // Build yt-dlp flags based on platform
+        const platformFlags = platform === 'instagram'
+            ? '--no-check-certificates --extractor-args "instagram:api_type=graphql"'
+            : '';
 
         // Get the filename first
-        const { stdout: filename } = await execAsync(command);
-        const trimmedFilename = filename.trim();
+        const filenameCommand = `yt-dlp -f ${format} --no-warnings ${platformFlags} --print filename -o "%(title)s.%(ext)s" "${url}"`;
+        const { stdout: filename } = await execAsync(filenameCommand, { timeout: 30000 });
+        const trimmedFilename = filename.trim() || 'video.mp4';
 
-        // Download the video
-        const isTwitch = url.includes('twitch.tv');
-        const downloadCommand = isTwitch
-            ? `yt-dlp -f "${format}" -o - "${url}"`
-            : `yt-dlp -f ${format} --no-warnings -o - "${url}"`;
+        // Build download command
+        let downloadCommand: string;
+        if (platform === 'twitch') {
+            downloadCommand = `yt-dlp -f "${format}" -o - "${url}"`;
+        } else if (platform === 'instagram') {
+            downloadCommand = `yt-dlp -f ${format} --no-warnings --no-check-certificates --extractor-args "instagram:api_type=graphql" -o - "${url}"`;
+        } else {
+            downloadCommand = `yt-dlp -f ${format} --no-warnings -o - "${url}"`;
+        }
 
-        const { stdout: videoBuffer } = await execAsync(
+        const { stdout: videoBuffer } = await execBufferWithTimeout(
             downloadCommand,
             {
                 encoding: 'buffer',
                 maxBuffer: 500 * 1024 * 1024 // 500MB buffer
-            }
+            },
+            6000 // 2 minute timeout for download
         );
 
         // Determine content type based on file extension
@@ -58,7 +94,7 @@ export async function POST(request: NextRequest) {
         const safeFilename = encodeURIComponent(trimmedFilename);
 
         // Return the video stream
-        return new NextResponse(videoBuffer, {
+        return new NextResponse(new Uint8Array(videoBuffer), {
             headers: {
                 'Content-Type': contentType,
                 'Content-Disposition': `attachment; filename*=UTF-8''${safeFilename}`,
@@ -68,6 +104,20 @@ export async function POST(request: NextRequest) {
 
     } catch (error: any) {
         console.error('Video download error:', error);
+
+        if (error.message?.includes('timed out') || error.message?.includes('Download timed out')) {
+            return NextResponse.json(
+                { error: 'Download timed out. The video may be too large or the server is under load.' },
+                { status: 504 }
+            );
+        }
+
+        if (error.message?.includes('login') || error.message?.includes('Login')) {
+            return NextResponse.json(
+                { error: 'This video requires authentication and cannot be downloaded.' },
+                { status: 403 }
+            );
+        }
 
         return NextResponse.json(
             { error: 'Failed to download video. The video may be private, age-restricted, or unavailable.' },
