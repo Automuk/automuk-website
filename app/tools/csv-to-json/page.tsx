@@ -1,10 +1,45 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { FileCode, FileSpreadsheet, Copy, Check, Download } from "lucide-react";
+import { FileCode, Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import LogoSVG from "@/components/ui/logo-svg";
+
+/** Parse a single CSV line respecting quoted fields. */
+function parseCSVLine(line: string): string[] {
+    const fields: string[] = [];
+    let current = "";
+    let inQuotes = false;
+
+    for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+
+        if (inQuotes) {
+            if (ch === '"') {
+                // Escaped quote ("") or end of quoted field
+                if (i + 1 < line.length && line[i + 1] === '"') {
+                    current += '"';
+                    i++; // skip next quote
+                } else {
+                    inQuotes = false;
+                }
+            } else {
+                current += ch;
+            }
+        } else {
+            if (ch === '"') {
+                inQuotes = true;
+            } else if (ch === ",") {
+                fields.push(current.trim());
+                current = "";
+            } else {
+                current += ch;
+            }
+        }
+    }
+    fields.push(current.trim());
+    return fields;
+}
 
 export default function CSVToJSON() {
     const [csv, setCsv] = useState("");
@@ -13,22 +48,30 @@ export default function CSVToJSON() {
     const [copied, setCopied] = useState(false);
 
     const convert = async () => {
+        if (!csv.trim()) {
+            setJson("Error: Please enter some CSV data.");
+            return;
+        }
+
         setLoading(true);
-        // Add a small delay for premium feel
         await new Promise(resolve => setTimeout(resolve, 700));
 
         try {
-            const lines = csv.split("\n");
+            const lines = csv.split(/\r?\n/).filter(l => l.trim() !== "");
+            if (lines.length < 2) {
+                setJson("Error: CSV must have a header row and at least one data row.");
+                setLoading(false);
+                return;
+            }
+
+            const headers = parseCSVLine(lines[0]);
             const result = [];
-            const headers = lines[0].split(",");
 
             for (let i = 1; i < lines.length; i++) {
-                if (!lines[i]) continue;
-                const obj: any = {};
-                const currentline = lines[i].split(",");
-
+                const values = parseCSVLine(lines[i]);
+                const obj: Record<string, string> = {};
                 for (let j = 0; j < headers.length; j++) {
-                    obj[headers[j].trim()] = currentline[j]?.trim();
+                    obj[headers[j]] = values[j] ?? "";
                 }
                 result.push(obj);
             }
@@ -57,7 +100,7 @@ export default function CSVToJSON() {
                     <textarea
                         value={csv}
                         onChange={(e) => setCsv(e.target.value)}
-                        placeholder="Name,Email,Age\nJohn Doe,john@example.com,28"
+                        placeholder={'Name,Email,Note\nJohn Doe,john@example.com,28\n"Doe, Jane",jane@example.com,"said ""hello"""'}
                         className="w-full h-full bg-white/[0.03] border border-white/10 rounded-3xl p-8 text-white font-mono focus:border-orange-500/50 outline-none resize-none"
                     />
                     <div className="relative h-full">

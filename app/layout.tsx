@@ -39,11 +39,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark">
-      <head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2255585996818403"
-          crossOrigin="anonymous">
-        </script>
-      </head>
+      <head />
+
       <body className="font-sans bg-[#020617] text-[#E5E7EB] antialiased">
         <Navbar />
         {children}

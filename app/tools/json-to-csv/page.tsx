@@ -1,10 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { FileSpreadsheet, FileCode, Copy, Check } from "lucide-react";
+import { FileSpreadsheet, Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import LogoSVG from "@/components/ui/logo-svg";
+
+/** Escape a single CSV value: wrap in quotes if it contains commas, quotes, or newlines. */
+function escapeCSVValue(value: unknown): string {
+    if (value === null || value === undefined) return "";
+    const str = typeof value === "object" ? JSON.stringify(value) : String(value);
+
+    if (str.includes(",") || str.includes('"') || str.includes("\n") || str.includes("\r")) {
+        return '"' + str.replace(/"/g, '""') + '"';
+    }
+    return str;
+}
 
 export default function JSONToCSV() {
     const [json, setJson] = useState("");
@@ -13,30 +23,37 @@ export default function JSONToCSV() {
     const [copied, setCopied] = useState(false);
 
     const convert = async () => {
+        if (!json.trim()) {
+            setCsv("Error: Please enter some JSON data.");
+            return;
+        }
+
         setLoading(true);
-        // Add a small delay for premium feel
         await new Promise(resolve => setTimeout(resolve, 800));
 
         try {
             const data = JSON.parse(json);
-            const array = typeof data !== 'object' ? JSON.parse(data) : data;
-            let str = '';
-            const header = Object.keys(array[0]).join(',') + '\r\n';
-            str += header;
+            const array = Array.isArray(data) ? data : [data];
 
-            for (let i = 0; i < array.length; i++) {
-                let line = '';
-                for (let index in array[i]) {
-                    if (line !== '') line += ',';
-                    line += array[i][index];
-                }
-                str += line + '\r\n';
+            if (array.length === 0) {
+                setCsv("Error: JSON array is empty.");
+                setLoading(false);
+                return;
             }
-            setCsv(str);
+
+            // Collect all unique keys across all objects
+            const keys = Array.from(new Set(array.flatMap(obj => Object.keys(obj))));
+            const header = keys.map(escapeCSVValue).join(",");
+            const rows = array.map(obj =>
+                keys.map(key => escapeCSVValue(obj[key])).join(",")
+            );
+
+            setCsv(header + "\r\n" + rows.join("\r\n"));
         } catch (e) {
-            setCsv("Error: Invalid JSON array format.");
+            setCsv("Error: Invalid JSON format. Please provide a valid JSON array.");
+        } finally {
+            setLoading(false);
         }
-        setLoading(false);
     };
 
     return (
@@ -56,7 +73,7 @@ export default function JSONToCSV() {
                     <textarea
                         value={json}
                         onChange={(e) => setJson(e.target.value)}
-                        placeholder='[{"name":"John","age":28}]'
+                        placeholder={'[{"name":"Doe, John","age":28,"note":"said \\"hello\\""}]'}
                         className="w-full h-full bg-white/[0.03] border border-white/10 rounded-3xl p-8 text-white font-mono focus:border-green-500/50 outline-none resize-none"
                     />
                     <div className="relative h-full">
