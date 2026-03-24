@@ -31,8 +31,13 @@ function detectPlatform(url: string): string {
 }
 
 export async function POST(request: NextRequest) {
+    let url = '';
+    let platform = 'unknown';
+
     try {
-        const { url, formatId } = await request.json();
+        const body = await request.json();
+        url = body.url;
+        const formatId = body.formatId;
 
         if (!url) {
             return NextResponse.json(
@@ -40,6 +45,8 @@ export async function POST(request: NextRequest) {
                 { status: 400 }
             );
         }
+
+        platform = detectPlatform(url);
 
         // Check if yt-dlp is installed
         try {
@@ -51,12 +58,11 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const platform = detectPlatform(url);
         const format = formatId || 'best';
 
         // Build yt-dlp flags based on platform
         const platformFlags = platform === 'instagram'
-            ? '--no-check-certificates --extractor-args "instagram:api_type=graphql"'
+            ? '--no-check-certificates'
             : '';
 
         // Get the filename first
@@ -69,7 +75,7 @@ export async function POST(request: NextRequest) {
         if (platform === 'twitch') {
             downloadCommand = `yt-dlp -f "${format}" -o - "${url}"`;
         } else if (platform === 'instagram') {
-            downloadCommand = `yt-dlp -f ${format} --no-warnings --no-check-certificates --extractor-args "instagram:api_type=graphql" -o - "${url}"`;
+            downloadCommand = `yt-dlp -f ${format} --no-warnings --no-check-certificates -o - "${url}"`;
         } else {
             downloadCommand = `yt-dlp -f ${format} --no-warnings -o - "${url}"`;
         }
@@ -112,9 +118,14 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        if (error.message?.includes('login') || error.message?.includes('Login')) {
+        if (error.message?.includes('login') || error.message?.includes('Login') || error.message?.includes('authentication') || error.message?.includes('Sign in') || error.message?.includes('empty media response') || error.message?.includes('Private video')) {
+            const platformMessages: Record<string, string> = {
+                instagram: 'This video requires authentication. Instagram private posts and stories cannot be downloaded without cookies.',
+                youtube: 'This video is private or age-restricted and cannot be downloaded without authentication.',
+            };
+            const msg = platformMessages[platform] || 'This video requires authentication and cannot be downloaded.';
             return NextResponse.json(
-                { error: 'This video requires authentication and cannot be downloaded.' },
+                { error: msg },
                 { status: 403 }
             );
         }

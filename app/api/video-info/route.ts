@@ -31,8 +31,12 @@ function detectPlatform(url: string): string {
 }
 
 export async function POST(request: NextRequest) {
+    let url = '';
+    let platform = 'unknown';
+
     try {
-        const { url } = await request.json();
+        const body = await request.json();
+        url = body.url;
 
         if (!url) {
             return NextResponse.json(
@@ -50,6 +54,8 @@ export async function POST(request: NextRequest) {
             );
         }
 
+        platform = detectPlatform(url);
+
         // Check if yt-dlp is installed
         try {
             await execAsync('yt-dlp --version');
@@ -60,15 +66,12 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const platform = detectPlatform(url);
-
         // Build yt-dlp command based on platform
         let infoCommand: string;
         if (platform === 'twitch') {
             infoCommand = `yt-dlp --skip-download --print-json --no-warnings "${url}"`;
         } else if (platform === 'instagram') {
-            // Instagram needs special handling: no login walls, use graphql API
-            infoCommand = `yt-dlp --dump-json --no-warnings --no-check-certificates --extractor-args "instagram:api_type=graphql" "${url}"`;
+            infoCommand = `yt-dlp --dump-json --no-warnings --no-check-certificates "${url}"`;
         } else {
             infoCommand = `yt-dlp --dump-json --no-warnings "${url}"`;
         }
@@ -159,9 +162,14 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        if (error.message?.includes('login') || error.message?.includes('Login') || error.message?.includes('authentication')) {
+        if (error.message?.includes('login') || error.message?.includes('Login') || error.message?.includes('authentication') || error.message?.includes('Sign in') || error.message?.includes('empty media response') || error.message?.includes('Private video')) {
+            const platformMessages: Record<string, string> = {
+                instagram: 'This video requires authentication. Instagram private posts and stories cannot be downloaded without cookies.',
+                youtube: 'This video is private or age-restricted and cannot be downloaded without authentication.',
+            };
+            const msg = platformMessages[platform] || 'This video requires authentication and cannot be downloaded.';
             return NextResponse.json(
-                { error: 'This video requires authentication. Instagram private posts and stories cannot be downloaded.' },
+                { error: msg },
                 { status: 403 }
             );
         }
