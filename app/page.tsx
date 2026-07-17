@@ -8,8 +8,8 @@ import IntegrationsGrid from "@/components/IntegrationsGrid";
 import Testimonials from "@/components/Testimonials";
 import HeroAnimation from "@/components/HeroAnimation";
 import BentoFlex from "@/components/BentoFlex";
-import LogicFlow from "@/components/LogicFlow";
 import EngagementModels from "@/components/EngagementModels";
+import OurWorks from "@/components/OurWorks";
 
 export const metadata: Metadata = {
   title: "Automuk | AI Agents, Workflow Automation & Custom B2B Software",
@@ -85,7 +85,7 @@ const jsonLd = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full overflow-hidden bg-background">
+    <div className="flex flex-col w-full bg-background">
       <Script
         id="json-ld"
         type="application/ld+json"
@@ -125,14 +125,8 @@ export default function Home() {
       {/* Integrations Grid (Client Component) */}
       <IntegrationsGrid />
 
-      {/* Process Section (Client Component) */}
-      <LogicFlow />
-
-      {/* Testimonials (Client Component) */}
-      {/* <Testimonials /> */}
-
-      {/* Results Section (Client Component) */}
-      {/* <ResultsSection /> */}
+      {/* Our Works Section */}
+      <OurWorks />
 
       {/* Final CTA */}
       <CTASection />

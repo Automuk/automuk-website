@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import LenisProvider from "@/components/LenisProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -42,9 +43,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head />
 
       <body className="font-sans bg-[#020617] text-[#E5E7EB] antialiased">
-        <Navbar />
-        {children}
-        <Footer />
+        <LenisProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </LenisProvider>
       </body>
     </html>
   );
