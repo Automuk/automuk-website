@@ -11,7 +11,7 @@ const works = [
     domain: "westra.in",
     category: "Brand & Web",
     description:
-      "A full-stack brand identity and marketing website for a fast-growing B2B services company. We built a high-performance Next.js site with animated hero sections, custom illustrations, and an SEO architecture that drove a 3× increase in organic traffic within 90 days.",
+      "Westra Wear is a premium women's fashion brand that blends timeless elegance with a modern shopping experience. We designed and developed a high-performance eCommerce platform that showcases curated collections including co-ord sets, kaftans, kurtis, salwars, frocks, tops, and more through a refined, luxury-inspired interface. The website seamlessly integrates online shopping with live Facebook selling sessions, enabling customers to discover products, interact in real time, and shop with confidence. Every page was crafted with a mobile-first approach, intuitive navigation, and conversion-focused user experience, while maintaining exceptional performance, accessibility, and SEO. Built using modern web technologies, the platform delivers fast load times, smooth animations, and a scalable architecture that supports continuous product additions and future growth. The result is a premium digital storefront that strengthens Westra Wear's brand identity and offers customers an engaging, personalized shopping experience across all devices.",
     tags: ["Next.js", "Branding", "SEO", "Animation"],
     accent: "#3168FA",
     imageUrl: "https://cdn.autom.uk/cdn-cgi/image/format=webp,quality=80,width=800/westra.png",
@@ -22,7 +22,7 @@ const works = [
     domain: "animhaus.com",
     category: "Creative Studio",
     description:
-      "An immersive portfolio and client-facing platform for a boutique animation studio. Features GPU-accelerated canvas animations, a showreel player, and a custom CMS for the creative team to publish case studies without touching code.",
+      "AnimHaus is a premium animation and visual engineering studio focused on creating immersive digital experiences through powerful storytelling and cutting-edge design. The project involved designing and developing a high-performance, cinematic website that reflects the studio's bold creative identity while maintaining exceptional speed and responsiveness. The platform showcases AnimHaus' expertise in anime, cartoons, manga, comics, game assets, digital infrastructure, and marketing services through dynamic layouts, smooth animations, and an intuitive user experience. Every section was carefully optimized for performance, SEO, accessibility, and mobile responsiveness, ensuring visitors enjoy a seamless experience across all devices. The result is a visually striking, conversion-focused website that strengthens the brand's online presence and effectively communicates its creative vision to clients worldwide.",
     tags: ["WebGL", "CMS", "Motion Design", "Portfolio"],
     accent: "#8B5CF6",
     imageUrl: "https://cdn.autom.uk/cdn-cgi/image/format=webp,quality=80,width=800/animhaus.png",
@@ -44,7 +44,7 @@ const works = [
     domain: "awakynn.com",
     category: "Wellness Brand",
     description:
-      "A premium DTC wellness brand website with a focus on conversion-optimised storytelling. Built with a bespoke design system, subscription product flows, and a mood-based quiz funnel that improved average session depth by 45%.",
+      "Awakynn is a modern wellness platform built to deliver a serene and engaging digital experience for a holistic health brand. The website combines elegant UI/UX design with high-performance development, featuring responsive layouts, smooth animations, SEO optimization, and fast loading speeds. Designed to reflect the brand's calming identity, the platform showcases yoga programs, meditation, Ayurvedic wellness, and personalized consultations through a clean, intuitive interface. The result is a visually immersive website that balances aesthetics, usability, and scalability while providing a seamless experience across all devices.",
     tags: ["DTC", "Shopify", "CRO", "Design System"],
     accent: "#F59E0B",
     imageUrl: "https://cdn.autom.uk/cdn-cgi/image/format=webp,quality=80,width=800/awakynn.png",
@@ -55,7 +55,7 @@ const works = [
     domain: "shurerdhara.com",
     category: "Cultural Platform",
     description:
-      "A digital archive and events platform celebrating Bengali classical music heritage. Includes a searchable media library with 1,000+ recordings, multilingual support, and a ticketing integration for live and virtual concerts.",
+      "Shurer Dhara is a premium cultural website dedicated to celebrating the life, legacy, and artistic journey of Padma Shri awardee Rezwana Choudhury Bannya, one of the world's most renowned exponents of Rabindra Sangeet and the founder of the Shurer Dhara music institution. The website was designed to preserve and present her remarkable contributions through an elegant, immersive digital experience inspired by Bengali heritage and classical aesthetics. Featuring a responsive interface, cinematic visuals, multimedia integration, event showcases, performance archives, and SEO-optimized architecture, the platform delivers a seamless experience across all devices. The result is a timeless digital destination that honors a legendary artist while making her music, achievements, and cultural legacy accessible to audiences worldwide.",
     tags: ["Media Archive", "i18n", "Events", "Heritage"],
     accent: "#EC4899",
     imageUrl: "https://cdn.autom.uk/cdn-cgi/image/format=webp,quality=80,width=800/shurerdhara.png",
@@ -66,7 +66,7 @@ const works = [
     domain: "kdiae.in",
     category: "Education & Design",
     description:
-      "The official web presence of a prestigious design and architecture institute. We delivered a fully accessible, WCAG-AA compliant site with admissions management, faculty profiles, and a student project gallery that receives 20k+ monthly visitors.",
+      "KD Institute of Advance Education (KDIAE) is a comprehensive digital ecosystem developed to streamline every aspect of school operations while delivering a modern online presence. Alongside designing and developing the institution's responsive, SEO-optimized website, we engineered a powerful custom School Management System tailored to the institution's daily workflows. The platform centralizes student records, admissions, fee and revenue management, financial reporting, teacher and staff management, attendance tracking, timetable scheduling, role-based access control, academic administration, and operational reporting within a single unified system. Built for scalability, security, and ease of use, the solution automates administrative processes, improves efficiency, reduces manual work, and provides school administrators with complete control over their institution through an intuitive, centralized dashboard.",
     tags: ["Accessibility", "WCAG", "Admissions", "Education"],
     accent: "#06B6D4",
     imageUrl: "https://cdn.autom.uk/cdn-cgi/image/format=webp,quality=80,width=800/kdiae.png",
@@ -77,7 +77,7 @@ const works = [
     domain: "zorgsocial.com",
     category: "Marketing Agency",
     description:
-      "A results-led social media marketing agency platform with a live campaign dashboard for clients. Features automated reporting, proposal generation via AI, and a CRM integration that reduced client onboarding from 3 days to under 4 hours.",
+      "ZorgSocial is an AI-powered social media marketing platform designed to help businesses plan, create, manage, and optimize their entire social media strategy from a single intelligent dashboard. We designed and developed a modern, high-performance SaaS platform featuring an intuitive user experience, scalable architecture, responsive design, and SEO-optimized pages. The platform integrates AI-driven content generation, strategic planning, multi-platform publishing, advanced analytics, audience insights, unified social inbox, campaign management, and workflow automation to simplify social media operations. Built with performance, scalability, and enterprise usability in mind, the project delivers a seamless experience that empowers businesses to streamline content creation, improve engagement, and drive measurable marketing results through intelligent automation.",
     tags: ["SaaS Dashboard", "AI Reporting", "CRM", "Automation"],
     accent: "#F97316",
     imageUrl: "https://cdn.autom.uk/cdn-cgi/image/format=webp,quality=80,width=800/zorgsocial.png",
@@ -88,7 +88,7 @@ const works = [
     domain: "quplast.com",
     category: "Industrial & Manufacturing",
     description:
-      "A corporate and lead-generation site for an industrial plastics manufacturer. Includes a product specification tool that lets buyers configure materials and request quotes in-browser, cutting the sales cycle by an average of 8 days.",
+      "Quplast is a modern eCommerce platform built for a leading supplier of household essentials, cleaning products, disposable tableware, packaging solutions, and eco-friendly consumer goods. The project focused on creating a fast, scalable, and conversion-driven shopping experience with a clean user interface, responsive design, and optimized performance across all devices. The platform features advanced product categorization, powerful search and filtering, secure shopping cart and checkout, custom bundle creation, promotional campaigns, and a streamlined content management system for efficient product and inventory updates. Designed with SEO best practices and a mobile-first approach, the website delivers an intuitive shopping experience while providing a robust foundation for future growth and large-scale product expansion.",
     tags: ["Industrial", "Lead Gen", "Quote Tool", "Manufacturing"],
     accent: "#14B8A6",
     imageUrl: "https://cdn.autom.uk/cdn-cgi/image/format=webp,quality=80,width=800/quplast.png",
