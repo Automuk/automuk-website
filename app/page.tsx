@@ -116,19 +116,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Expertise Section (Client Component) */}
       <BentoFlex />
 
-      {/* Engagement Models Section (Client Component) */}
-      <EngagementModels />
-
-      {/* Integrations Grid (Client Component) */}
-      <IntegrationsGrid />
-
-      {/* Our Works Section */}
       <OurWorks />
 
-      {/* Final CTA */}
+      <IntegrationsGrid />
+
+      <EngagementModels />
+
       <CTASection />
     </div>
   );
