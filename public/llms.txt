@@ -6,11 +6,13 @@
 
 Automuk helps businesses gain an unfair competitive advantage by combining intelligent AI systems with beautiful digital products. We operate as a lean, high-output studio serving founders, startups, and growing businesses worldwide.
 
-Contact: arijit@autom.uk
-Website: https://autom.uk
-LinkedIn: https://www.linkedin.com/company/automuk
+- Contact: [arijit@autom.uk](mailto:arijit@autom.uk)
+- Website: [https://autom.uk](https://autom.uk)
+- LinkedIn: [https://www.linkedin.com/company/automuk](https://www.linkedin.com/company/automuk)
 
 ## Services
+
+Full details at [https://autom.uk/services](https://autom.uk/services).
 
 ### AI Solutions
 Custom-built AI agents, LLM integrations, RAG pipelines, and intelligent chatbots that operate 24/7. We work with GPT-4o, Claude, Llama, and vector database infrastructure to build autonomous systems that reduce human overhead and handle complex tasks at scale.
@@ -33,16 +35,18 @@ Industrial-grade workflow orchestration using Zapier, Make (Integromat), and n8n
 - **End-to-End Delivery** — Full-cycle project execution from discovery to production deployment. Complete ownership handover.
 - **Managed Ecosystem** — Ongoing subscription retainer with 24/7 priority support, monthly feature sprints, and infrastructure maintenance.
 
+[Get in touch](https://autom.uk/contact) to discuss which model fits your needs.
+
 ## Selected Work
 
-- **Westra** (westra.in) — Premium women's fashion eCommerce with live Facebook selling integration
-- **Animhaus** (animhaus.com) — Cinematic website for an animation and visual engineering studio
-- **Grabfabs** (grabfabs.com) — B2B wholesale marketplace with AI-powered product tagging (60% faster listing)
-- **Awakynn** (awakynn.com) — Wellness platform for holistic health and Ayurvedic consultations
-- **Shurerdhara** (shurerdhara.com) — Cultural heritage platform for Padma Shri awardee Rezwana Choudhury Bannya
-- **KDIAE** (kdiae.in) — School management system with admissions, attendance, fee, and reporting modules
-- **Zorg Social** (zorgsocial.com) — AI-powered SaaS platform for multi-platform social media management
-- **Quplast** (quplast.com) — eCommerce platform for household and packaging goods supplier
+- [Westra](https://westra.in) — Premium women's fashion eCommerce with live Facebook selling integration
+- [Animhaus](https://animhaus.com) — Cinematic website for an animation and visual engineering studio
+- [Grabfabs](https://grabfabs.com) — B2B wholesale marketplace with AI-powered product tagging (60% faster listing)
+- [Awakynn](https://awakynn.com) — Wellness platform for holistic health and Ayurvedic consultations
+- [Shurerdhara](https://shurerdhara.com) — Cultural heritage platform for Padma Shri awardee Rezwana Choudhury Bannya
+- [KDIAE](https://kdiae.in) — School management system with admissions, attendance, fee, and reporting modules
+- [Zorg Social](https://zorgsocial.com) — AI-powered SaaS platform for multi-platform social media management
+- [Quplast](https://quplast.com) — eCommerce platform for household and packaging goods supplier
 
 ## Tech Stack
 
@@ -50,10 +54,10 @@ Next.js · React · TypeScript · Tailwind CSS · Framer Motion · Node.js · Py
 
 ## Pages
 
-- https://autom.uk — Home
-- https://autom.uk/services — Services overview
-- https://autom.uk/about — About Automuk
-- https://autom.uk/contact — Get in touch
-- https://autom.uk/privacy — Privacy policy
-- https://autom.uk/terms — Terms of service
-- https://autom.uk/tools — Free developer tools
+- [Home](https://autom.uk)
+- [Services](https://autom.uk/services)
+- [About](https://autom.uk/about)
+- [Contact](https://autom.uk/contact)
+- [Privacy Policy](https://autom.uk/privacy)
+- [Terms of Service](https://autom.uk/terms)
+- [Free Tools](https://autom.uk/tools)
