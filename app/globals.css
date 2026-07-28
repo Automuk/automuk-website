@@ -28,7 +28,8 @@
 
 @font-face {
   font-family: 'Satoshi';
-  src: url('/satoshi/Satoshi-Regular.woff2') format('woff2');
+  src: url('/satoshi/Satoshi-Regular.woff2') format('woff2'),
+       url('/satoshi/Satoshi-Regular.otf') format('opentype');
   font-weight: 400;
   font-display: swap;
   font-style: normal;
@@ -40,7 +41,8 @@
 
 @font-face {
   font-family: 'Satoshi';
-  src: url('/satoshi/Satoshi-Medium.woff2') format('woff2');
+  src: url('/satoshi/Satoshi-Medium.woff2') format('woff2'),
+       url('/satoshi/Satoshi-Medium.otf') format('opentype');
   font-weight: 500;
   font-display: swap;
   font-style: normal;
@@ -52,7 +54,8 @@
 
 @font-face {
   font-family: 'Satoshi';
-  src: url('/satoshi/Satoshi-Bold.woff2') format('woff2');
+  src: url('/satoshi/Satoshi-Bold.woff2') format('woff2'),
+       url('/satoshi/Satoshi-Bold.otf') format('opentype');
   font-weight: 700;
   font-display: swap;
   font-style: normal;
@@ -64,7 +67,8 @@
 
 @font-face {
   font-family: 'Satoshi';
-  src: url('/satoshi/Satoshi-Black.woff2') format('woff2');
+  src: url('/satoshi/Satoshi-Black.woff2') format('woff2'),
+       url('/satoshi/Satoshi-Black.otf') format('opentype');
   font-weight: 900;
   font-display: swap;
   font-style: normal;
