@@ -44,7 +44,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Preload critical fonts to eliminate FOUT and reduce render-blocking impact */}
         <link
           rel="preload"
-          href="/satoshi/Satoshi-Variable.woff2"
+          href="/satoshi/Satoshi-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/satoshi/Satoshi-Bold.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
