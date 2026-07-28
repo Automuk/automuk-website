@@ -1,14 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faComments,
-    faBoxOpen,
-    faRocket,
-    faCheckCircle,
-    faChevronRight
-} from "@fortawesome/free-solid-svg-icons";
+import { ChevronRight } from "lucide-react";
 
 const tiers = [
     {
@@ -164,7 +157,7 @@ export default function EngagementModels() {
                                         <span className="relative z-10 tracking-widest uppercase text-xs">
                                             {tier.buttonText}
                                         </span>
-                                        <FontAwesomeIcon icon={faChevronRight} className="relative z-10 h-3 w-3 group-hover/btn:translate-x-1.5 transition-transform duration-500" />
+                                        <ChevronRight className="relative z-10 h-3 w-3 group-hover/btn:translate-x-1.5 transition-transform duration-500" />
                                     </button>
                                 </div>
                             </div>

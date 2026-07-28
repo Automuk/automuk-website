@@ -199,6 +199,8 @@ export default function OurWorks() {
                 <div className="w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                   <img
                     src={work.imageUrl}
+                    srcSet={`${work.imageUrl.replace('width=800', 'width=680')} 680w, ${work.imageUrl} 800w`}
+                    sizes="(max-width: 1280px) 680px, 800px"
                     alt={work.name}
                     className="w-full h-full object-cover object-top"
                     loading="lazy"
