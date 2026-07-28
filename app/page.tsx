@@ -3,8 +3,8 @@ import Script from "next/script";
 import dynamic from "next/dynamic";
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
-import HeroAnimation from "@/components/HeroAnimation";
 
+const HeroAnimation = dynamic(() => import("@/components/HeroAnimation"), { ssr: false });
 const BentoFlex = dynamic(() => import("@/components/BentoFlex"));
 const OurWorks = dynamic(() => import("@/components/OurWorks"));
 const IntegrationsGrid = dynamic(() => import("@/components/IntegrationsGrid"));
