@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Script from "next/script";
-import dynamic from "next/dynamic";
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import BentoFlex from "@/components/BentoFlex";
@@ -10,8 +9,7 @@ import EngagementModels from "@/components/EngagementModels";
 import CTASection from "@/components/CTASection";
 import ResultsSection from "@/components/ResultsSection";
 import Testimonials from "@/components/Testimonials";
-
-const HeroAnimation = dynamic(() => import("@/components/HeroAnimation"), { ssr: false });
+import HeroAnimationClient from "@/components/HeroAnimationClient";
 
 export const metadata: Metadata = {
   title: "Automuk | AI Solutions, Web Development, Dashboards & Branding",
@@ -106,7 +104,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <HeroAnimation />
+        <HeroAnimationClient />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="text-4xl md:text-8xl font-black tracking-tight mb-8 leading-[1.1] animate-reveal">
