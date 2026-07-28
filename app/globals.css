@@ -28,12 +28,14 @@
 
 @font-face {
   font-family: 'Satoshi';
-  src: url('/satoshi/Satoshi-Variable.woff2') format('woff2-variations'),
-    url('/satoshi/Satoshi-Variable.woff') format('woff-variations'),
-    url('/satoshi/Satoshi-Regular.otf') format('opentype');
+  src: url('/satoshi/Satoshi-Variable.woff2') format('woff2-variations');
   font-weight: 300 900;
   font-display: swap;
   font-style: normal;
+  ascent-override: 94%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
 }
 
 @font-face {
@@ -42,6 +44,10 @@
   font-weight: 400;
   font-display: swap;
   font-style: normal;
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
 }
 
 @font-face {
@@ -50,6 +56,10 @@
   font-weight: 500;
   font-display: swap;
   font-style: normal;
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
 }
 
 @font-face {
@@ -58,6 +68,10 @@
   font-weight: 700;
   font-display: swap;
   font-style: normal;
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
 }
 
 @custom-variant dark (&:is(.dark *));
