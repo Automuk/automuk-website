@@ -51,9 +51,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <link
           rel="preload"
-          href="/neue-haas-grotesk-display-pro-cufonfonts/NeueHaasDisplayRoman.ttf"
+          href="/neue-haas-grotesk-display-pro-cufonfonts/NeueHaasDisplayRoman.woff2"
           as="font"
-          type="font/truetype"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/neue-haas-grotesk-display-pro-cufonfonts/NeueHaasDisplayMediu.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/neue-haas-grotesk-display-pro-cufonfonts/NeueHaasDisplayBold.woff2"
+          as="font"
+          type="font/woff2"
           crossOrigin="anonymous"
         />
       </head>

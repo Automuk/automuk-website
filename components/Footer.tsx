@@ -11,7 +11,7 @@ export default function Footer() {
                     <div className="col-span-1 md:col-span-2 space-y-6">
                         <Link href="/" className="flex items-center space-x-3 group w-fit">
                             <div className="relative w-10 h-10">
-                                <img src="https://cdn.autom.uk/logo.svg" alt="Automuk logo" className="w-full h-full" />
+                                <img src="https://cdn.autom.uk/logo.svg" alt="Automuk logo" width="40" height="40" className="w-full h-full" fetchPriority="low" />
                                 <div className="absolute inset-0 bg-primary blur-lg opacity-0 group-hover:opacity-30 transition-opacity" />
                             </div>
                             <span className="text-2xl font-black font-heading tracking-tighter text-white leading-none">

@@ -1,12 +1,10 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import PageContainer from "@/components/PageContainer";
 import { motion } from "framer-motion";
-
-const StickyServices = dynamic(() => import("@/components/StickyServices"));
-const CTASection = dynamic(() => import("@/components/CTASection"));
-const EngagementModels = dynamic(() => import("@/components/EngagementModels"));
+import StickyServices from "@/components/StickyServices";
+import CTASection from "@/components/CTASection";
+import EngagementModels from "@/components/EngagementModels";
 
 const services = [
     {

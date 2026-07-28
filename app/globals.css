@@ -40,7 +40,7 @@
 
 @font-face {
   font-family: 'Neue Haas Grotesk';
-  src: url('/neue-haas-grotesk-display-pro-cufonfonts/NeueHaasDisplayRoman.ttf') format('truetype');
+  src: url('/neue-haas-grotesk-display-pro-cufonfonts/NeueHaasDisplayRoman.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
   font-style: normal;
@@ -52,7 +52,7 @@
 
 @font-face {
   font-family: 'Neue Haas Grotesk';
-  src: url('/neue-haas-grotesk-display-pro-cufonfonts/NeueHaasDisplayMediu.ttf') format('truetype');
+  src: url('/neue-haas-grotesk-display-pro-cufonfonts/NeueHaasDisplayMediu.woff2') format('woff2');
   font-weight: 500;
   font-display: swap;
   font-style: normal;
@@ -64,7 +64,7 @@
 
 @font-face {
   font-family: 'Neue Haas Grotesk';
-  src: url('/neue-haas-grotesk-display-pro-cufonfonts/NeueHaasDisplayBold.ttf') format('truetype');
+  src: url('/neue-haas-grotesk-display-pro-cufonfonts/NeueHaasDisplayBold.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
   font-style: normal;

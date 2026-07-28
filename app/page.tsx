@@ -3,15 +3,15 @@ import Script from "next/script";
 import dynamic from "next/dynamic";
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
+import BentoFlex from "@/components/BentoFlex";
+import OurWorks from "@/components/OurWorks";
+import IntegrationsGrid from "@/components/IntegrationsGrid";
+import EngagementModels from "@/components/EngagementModels";
+import CTASection from "@/components/CTASection";
+import ResultsSection from "@/components/ResultsSection";
+import Testimonials from "@/components/Testimonials";
 
 const HeroAnimation = dynamic(() => import("@/components/HeroAnimation"), { ssr: false });
-const BentoFlex = dynamic(() => import("@/components/BentoFlex"));
-const OurWorks = dynamic(() => import("@/components/OurWorks"));
-const IntegrationsGrid = dynamic(() => import("@/components/IntegrationsGrid"));
-const EngagementModels = dynamic(() => import("@/components/EngagementModels"));
-const CTASection = dynamic(() => import("@/components/CTASection"));
-const ResultsSection = dynamic(() => import("@/components/ResultsSection"));
-const Testimonials = dynamic(() => import("@/components/Testimonials"));
 
 export const metadata: Metadata = {
   title: "Automuk | AI Solutions, Web Development, Dashboards & Branding",
