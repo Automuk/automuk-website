@@ -31,7 +31,7 @@ export default function StickyServices({ services }: { services: Service[] }) {
     }, [scrollYProgress, services.length, activeIndex]);
 
     return (
-        <div ref={containerRef} className="relative h-[300vh] w-full mt-0 md:mt-20">
+        <div ref={containerRef} className="relative h-[500vh] w-full mt-0 md:mt-20">
             <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
                 {/* Background Gradients */}
                 {services.map((service, index) => (

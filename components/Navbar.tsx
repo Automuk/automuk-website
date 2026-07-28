@@ -8,7 +8,6 @@ import {
   ChevronDown, Menu, X, ArrowLeftRight
 } from "lucide-react";
 import { tools } from "@/lib/tools-data";
-import LogoSVG from "./ui/logo-svg";
 
 type NavLink = {
   name: string;
@@ -37,7 +36,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-3 group">
               <div className="relative w-10 h-10">
-                <LogoSVG animate={true} />
+                <img src="https://cdn.autom.uk/logo.svg" alt="Automuk logo" className="w-full h-full" />
                 <div className="absolute inset-0 bg-primary blur-lg opacity-0 group-hover:opacity-30 transition-opacity" />
               </div>
               <span className="text-xl md:text-2xl font-black font-heading tracking-tighter text-white leading-none">
@@ -130,6 +129,9 @@ export default function Navbar() {
           <div className="flex items-center lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
               className="text-muted-foreground hover:text-white transition-colors p-2"
             >
               {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
@@ -142,6 +144,7 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}

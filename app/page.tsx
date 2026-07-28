@@ -1,37 +1,39 @@
 import Link from "next/link";
 import Script from "next/script";
+import dynamic from "next/dynamic";
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
-import CTASection from "@/components/CTASection";
-import ResultsSection from "@/components/ResultsSection";
-import IntegrationsGrid from "@/components/IntegrationsGrid";
-import Testimonials from "@/components/Testimonials";
 import HeroAnimation from "@/components/HeroAnimation";
-import BentoFlex from "@/components/BentoFlex";
-import EngagementModels from "@/components/EngagementModels";
-import OurWorks from "@/components/OurWorks";
+
+const BentoFlex = dynamic(() => import("@/components/BentoFlex"));
+const OurWorks = dynamic(() => import("@/components/OurWorks"));
+const IntegrationsGrid = dynamic(() => import("@/components/IntegrationsGrid"));
+const EngagementModels = dynamic(() => import("@/components/EngagementModels"));
+const CTASection = dynamic(() => import("@/components/CTASection"));
+const ResultsSection = dynamic(() => import("@/components/ResultsSection"));
+const Testimonials = dynamic(() => import("@/components/Testimonials"));
 
 export const metadata: Metadata = {
-  title: "Automuk | AI Agents, Workflow Automation & Custom B2B Software",
-  description: "Automuk helps businesses amplify growth through custom AI agents, seamless workflow automation (Zapier, Make, n8n), and high-performance software solutions. Transform your operations today.",
+  title: "Automuk | AI Solutions, Web Development, Dashboards & Branding",
+  description: "Automuk builds AI-powered solutions, single-page & multi-page websites, custom dashboards, and delivers branding & marketing services that help businesses scale faster.",
   keywords: [
     "AI Agents",
-    "B2B Automation",
+    "Web Development",
+    "Custom Dashboards",
+    "Branding Services",
+    "Digital Marketing",
     "Workflow Automation",
-    "Custom Software Development",
-    "Zapier Experts",
-    "Make.com Automation",
-    "n8n Workflows",
+    "Single Page Website",
+    "Multi Page Website",
     "AI Chatbots for Business",
-    "Process Optimization",
     "Digital Transformation"
   ],
   alternates: {
     canonical: "https://autom.uk",
   },
   openGraph: {
-    title: "Automuk | Amplify Growth with Intelligent Automation",
-    description: "Scale your business with custom AI solutions and automated workflows. We build the tools that free your team to focus on growth.",
+    title: "Automuk | AI Solutions, Web Dev, Dashboards & Branding",
+    description: "From AI agents to pixel-perfect websites, custom dashboards, and full-stack branding — Automuk builds everything your business needs to scale.",
     url: "https://autom.uk",
     siteName: "Automuk",
     images: [
@@ -47,8 +49,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Automuk | AI & Automation Excellence",
-    description: "Custom AI agents and seamless workflows for modern businesses.",
+    title: "Automuk | AI, Web & Branding Excellence",
+    description: "AI solutions, stunning websites, custom dashboards, and bold branding for modern businesses.",
     images: ["/og-image.png"],
   },
 };
@@ -59,7 +61,7 @@ const jsonLd = {
   "name": "Automuk",
   "url": "https://autom.uk",
   "logo": "https://autom.uk/logo.svg",
-  "description": "Premium AI Automation and Custom Software Studio for B2B growth.",
+  "description": "Full-service digital studio offering AI solutions, web development, custom dashboards, branding, and marketing for modern businesses.",
   "address": {
     "@type": "PostalAddress",
     "addressCountry": "US"
@@ -67,18 +69,28 @@ const jsonLd = {
   "service": [
     {
       "@type": "Service",
-      "name": "AI Agent Development",
-      "description": "Custom LLM integrations and intelligent chatbots."
+      "name": "AI Solutions",
+      "description": "Custom LLM integrations, AI agents, and intelligent chatbots."
+    },
+    {
+      "@type": "Service",
+      "name": "Web Development",
+      "description": "Single-page and multi-page high-performance websites."
+    },
+    {
+      "@type": "Service",
+      "name": "Custom Dashboards",
+      "description": "Tailored operational dashboards and internal tools."
+    },
+    {
+      "@type": "Service",
+      "name": "Branding & Marketing",
+      "description": "Brand identity design and digital marketing strategies."
     },
     {
       "@type": "Service",
       "name": "Workflow Automation",
       "description": "Seamless integrations using Zapier, Make, and n8n."
-    },
-    {
-      "@type": "Service",
-      "name": "Custom Software Solutions",
-      "description": "Operational dashboards and internal tools."
     }
   ]
 };
@@ -97,20 +109,21 @@ export default function Home() {
         <HeroAnimation />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-4xl md:text-8xl font-black tracking-tight mb-8 leading-[1.2] animate-reveal">
+          <h1 className="text-4xl md:text-8xl font-black tracking-tight mb-8 leading-[1.1] animate-reveal">
+            <span className="text-white block">Your business deserves</span>
             <span className="inline-block py-2 bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] animate-gradient-flow">
-              Amplifying Growth.
+              an unfair advantage.
             </span>
           </h1>
-          <p className="text-lg md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up stagger-1">
-            Automuk builds AI-powered automation and custom software that frees your team from repetitive tasks and focuses them on what matters.
+          <p className="text-lg md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up stagger-1">
+            We build the AI, the website, the brand, and the systems that make your competitors wonder what you&apos;re using.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up stagger-2">
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white min-w-[280px] sm:min-w-[280px] h-14 sm:h-16 text-lg sm:text-xl shadow-[0_0_40px_rgba(49,104,250,0.4)] transition-all hover:scale-105 rounded-full">
-              <Link href="/contact">Book a Free Consultation</Link>
+              <Link href="/contact">Start a Project</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="bg-white/5 border-white/10 hover:bg-white/10 text-white min-w-[220px] sm:min-w-[220px] h-14 sm:h-16 text-lg sm:text-xl rounded-full backdrop-blur-sm">
-              <Link href="/services">View Services</Link>
+              <Link href="/services">See What We Do</Link>
             </Button>
           </div>
         </div>

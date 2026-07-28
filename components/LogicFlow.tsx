@@ -2,13 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faSearch,
-    faDraftingCompass,
-    faCogs,
-    faArrowTrendUp
-} from "@fortawesome/free-solid-svg-icons";
+import { Search, Compass, Settings, TrendingUp } from "lucide-react";
 
 export default function LogicFlow() {
     return (
@@ -23,10 +17,10 @@ export default function LogicFlow() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative">
                     {[
-                        { step: "01", title: "Audit", desc: "We deep-dive into your existing manual workflows to identify high-impact automation candidates.", icon: faSearch },
-                        { step: "02", title: "Architect", desc: "Design a scalable architecture that bridges your current stacks with modern AI capabilities.", icon: faDraftingCompass },
-                        { step: "03", title: "Automate", desc: "Build, test, and deploy the logic using industry-standard tools and custom coding.", icon: faCogs },
-                        { step: "04", title: "Amplify", desc: "Monitor performance and continuously refine agents to ensure maximum ROI and growth.", icon: faArrowTrendUp }
+                        { step: "01", title: "Audit", desc: "We deep-dive into your existing manual workflows to identify high-impact automation candidates.", icon: Search },
+                        { step: "02", title: "Architect", desc: "Design a scalable architecture that bridges your current stacks with modern AI capabilities.", icon: Compass },
+                        { step: "03", title: "Automate", desc: "Build, test, and deploy the logic using industry-standard tools and custom coding.", icon: Settings },
+                        { step: "04", title: "Amplify", desc: "Monitor performance and continuously refine agents to ensure maximum ROI and growth.", icon: TrendingUp }
                     ].map((item, i) => (
                         <motion.div
                             key={i}
@@ -41,7 +35,7 @@ export default function LogicFlow() {
                                     {item.step}
                                 </div>
                                 <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-500">
-                                    <FontAwesomeIcon icon={item.icon} className="text-primary w-5 h-5" />
+                                    <item.icon className="text-primary w-5 h-5" />
                                 </div>
                             </div>
                             <h3 className="text-2xl font-bold mb-4">{item.title}</h3>

@@ -1,0 +1,59 @@
+# Automuk
+
+> Automuk is a full-service digital studio that builds AI solutions, websites, custom dashboards, branding, and workflow automation for modern businesses.
+
+## About
+
+Automuk helps businesses gain an unfair competitive advantage by combining intelligent AI systems with beautiful digital products. We operate as a lean, high-output studio serving founders, startups, and growing businesses worldwide.
+
+Contact: arijit@autom.uk
+Website: https://autom.uk
+LinkedIn: https://www.linkedin.com/company/automuk
+
+## Services
+
+### AI Solutions
+Custom-built AI agents, LLM integrations, RAG pipelines, and intelligent chatbots that operate 24/7. We work with GPT-4o, Claude, Llama, and vector database infrastructure to build autonomous systems that reduce human overhead and handle complex tasks at scale.
+
+### Web Development
+Single-page and multi-page high-performance websites built with Next.js, React, Tailwind CSS, and TypeScript. Every site is optimised for Core Web Vitals, SEO, accessibility, and conversions — from landing pages to full marketing portals.
+
+### Custom Dashboards
+Tailored operational dashboards, admin panels, and internal tools built to your exact business logic and data sources. Real-time analytics, role-based access, and scalable architecture.
+
+### Branding & Marketing
+End-to-end brand identity design and digital marketing strategy — logo systems, visual language, SEO, paid advertising, and content campaigns.
+
+### Workflow Automation
+Industrial-grade workflow orchestration using Zapier, Make (Integromat), and n8n. We connect your entire tech stack to eliminate manual work and ensure 100% data accuracy.
+
+## Engagement Models
+
+- **Strategic Consultancy** — 1-on-1 advisory sessions for strategy, architecture, and roadblock resolution. Direct founder access.
+- **End-to-End Delivery** — Full-cycle project execution from discovery to production deployment. Complete ownership handover.
+- **Managed Ecosystem** — Ongoing subscription retainer with 24/7 priority support, monthly feature sprints, and infrastructure maintenance.
+
+## Selected Work
+
+- **Westra** (westra.in) — Premium women's fashion eCommerce with live Facebook selling integration
+- **Animhaus** (animhaus.com) — Cinematic website for an animation and visual engineering studio
+- **Grabfabs** (grabfabs.com) — B2B wholesale marketplace with AI-powered product tagging (60% faster listing)
+- **Awakynn** (awakynn.com) — Wellness platform for holistic health and Ayurvedic consultations
+- **Shurerdhara** (shurerdhara.com) — Cultural heritage platform for Padma Shri awardee Rezwana Choudhury Bannya
+- **KDIAE** (kdiae.in) — School management system with admissions, attendance, fee, and reporting modules
+- **Zorg Social** (zorgsocial.com) — AI-powered SaaS platform for multi-platform social media management
+- **Quplast** (quplast.com) — eCommerce platform for household and packaging goods supplier
+
+## Tech Stack
+
+Next.js · React · TypeScript · Tailwind CSS · Framer Motion · Node.js · Python · PostgreSQL · MongoDB · Redis · Docker · AWS · Cloudflare · Stripe · n8n · Zapier · Make · OpenAI · Anthropic · Llama · Pinecone
+
+## Pages
+
+- https://autom.uk — Home
+- https://autom.uk/services — Services overview
+- https://autom.uk/about — About Automuk
+- https://autom.uk/contact — Get in touch
+- https://autom.uk/privacy — Privacy policy
+- https://autom.uk/terms — Terms of service
+- https://autom.uk/tools — Free developer tools

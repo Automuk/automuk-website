@@ -1,10 +1,12 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import PageContainer from "@/components/PageContainer";
 import { motion } from "framer-motion";
-import StickyServices from "@/components/StickyServices";
-import CTASection from "@/components/CTASection";
-import EngagementModels from "@/components/EngagementModels";
+
+const StickyServices = dynamic(() => import("@/components/StickyServices"));
+const CTASection = dynamic(() => import("@/components/CTASection"));
+const EngagementModels = dynamic(() => import("@/components/EngagementModels"));
 
 const services = [
     {
@@ -13,14 +15,24 @@ const services = [
         imageUrl: "https://images.unsplash.com/photo-1664447972779-316251bd8bd7?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-        category: "Automation",
-        description: "Eliminate manual busywork with industrial-grade workflow orchestration. We connect your tools using Zapier, Make, and n8n to save hours every week while ensuring 100% data accuracy.",
-        imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
+        category: "Web Development",
+        description: "Stunning single-page sites and comprehensive multi-page websites built for performance, SEO, and conversions. From sleek landing pages to full-featured marketing portals \u2014 pixel-perfect on every device.",
+        imageUrl: "https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=2064&auto=format&fit=crop"
     },
     {
-        category: "Custom Software",
-        description: "Scale your technical infrastructure with high-performance internal tools and robust APIs. We design custom admin panels and operations hubs tailored to your specific business logic.",
-        imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
+        category: "Custom Dashboards",
+        description: "Tailored operational dashboards, admin panels, and internal tools that give your team real-time visibility and control. Fully customisable to your exact business logic and data sources.",
+        imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+        category: "Branding & Marketing",
+        description: "Bold brand identities and data-driven digital marketing strategies that make you impossible to ignore. From logo design and visual systems to SEO, paid ads, and content campaigns.",
+        imageUrl: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+        category: "Workflow Automation",
+        description: "Eliminate manual busywork with industrial-grade workflow orchestration. We connect your tools using Zapier, Make, and n8n to save hours every week while ensuring 100% data accuracy.",
+        imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
     }
 ];
 
@@ -44,7 +56,7 @@ export default function ServicesPage() {
                         Expertise That <span className="text-[#3168FA]">Scales</span>
                     </h1>
                     <p className="text-lg md:text-2xl text-[#94A3B8] leading-relaxed max-w-2xl mx-auto">
-                        We don't just write code; we build engines for growth. Discover our specialized services designed to automate the mundane and amplify the meaningful.
+                        AI solutions, beautiful websites, custom dashboards, bold branding, and intelligent automation — everything your business needs to grow, under one roof.
                     </p>
                 </motion.div>
 
