@@ -107,7 +107,7 @@ export default function Home() {
         <HeroAnimationClient />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-4xl md:text-8xl font-black tracking-tight mb-8 leading-[1.1] animate-reveal">
+          <h1 className="text-4xl md:text-8xl font-medium tracking-tight mb-8 leading-[1.1] animate-reveal">
             <span className="text-white block">Your business deserves</span>
             <span className="inline-block py-2 bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] animate-gradient-flow">
               an unfair advantage.

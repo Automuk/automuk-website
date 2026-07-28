@@ -38,7 +38,7 @@ export default function Navbar() {
                 <img src="https://cdn.autom.uk/logo.svg" alt="Automuk logo" width="40" height="40" className="w-full h-full" />
                 <div className="absolute inset-0 bg-primary blur-lg opacity-0 group-hover:opacity-30 transition-opacity" />
               </div>
-              <span className="text-xl md:text-2xl font-black font-heading tracking-tighter text-white leading-none">
+              <span className="text-xl md:text-2xl font-medium font-heading tracking-tighter text-white leading-none">
                 Automuk
               </span>
             </Link>
@@ -66,46 +66,43 @@ export default function Navbar() {
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
                   </Link>
                 )}
-              </div>
-            ))}
 
-            {/* Desktop Dropdown — CSS transition, no framer-motion */}
-            {navLinks.map((link) => link.dropdown && (
-              <div
-                key={`dd-${link.name}`}
-                onMouseEnter={() => setActiveDropdown(link.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
-                className={`absolute top-20 left-1/2 -translate-x-1/2 pt-4 w-fit pointer-events-auto transition-all duration-200 origin-top ${activeDropdown === link.name ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'}`}
-              >
-                <div className="relative bg-[#020617]/80 border border-white/10 rounded-[2.5rem] p-10 shadow-[0_40px_100px_rgba(0,0,0,0.8)] backdrop-blur-[40px] overflow-hidden w-[1100px]">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
-                  <div className="relative grid grid-cols-5 gap-x-2 gap-y-1">
-                    {link.dropdown.map((tool) => (
-                      <Link
-                        key={tool.name}
-                        href={tool.href}
-                        className="group flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all duration-200 outline-none w-full"
-                      >
-                        <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-[#94A3B8] group-hover:bg-primary group-hover:text-white transition-all duration-300 shrink-0">
-                          <tool.icon size={18} />
+                {/* Dropdown nested inside the same hover zone */}
+                {link.dropdown && (
+                  <div
+                    className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 w-fit pointer-events-auto transition-all duration-200 origin-top ${activeDropdown === link.name ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
+                  >
+                    <div className="relative bg-[#020617]/80 border border-white/10 rounded-[2.5rem] p-10 shadow-[0_40px_100px_rgba(0,0,0,0.8)] backdrop-blur-[40px] overflow-hidden w-[1100px]">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent backdrop-blur-lg pointer-events-none" />
+                      <div className="relative grid grid-cols-5 gap-x-2 gap-y-1">
+                        {link.dropdown.map((tool) => (
+                          <Link
+                            key={tool.name}
+                            href={tool.href}
+                            className="group flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all duration-200 outline-none w-full"
+                          >
+                            <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-[#94A3B8] group-hover:bg-primary group-hover:text-white transition-all duration-300 shrink-0">
+                              <tool.icon size={18} />
+                            </div>
+                            <div className="text-[13px] font-bold text-[#94A3B8] group-hover:text-white transition-colors truncate">
+                              {tool.name}
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                      <div className="relative mt-8 pt-8 border-t border-white/5 flex items-center justify-between px-2">
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_15px_rgba(34,197,94,0.6)]" />
+                          <span className="text-[10px] text-white/50 font-black tracking-[0.2em] uppercase">30 Professional Tools</span>
                         </div>
-                        <div className="text-[13px] font-bold text-[#94A3B8] group-hover:text-white transition-colors truncate">
-                          {tool.name}
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                  <div className="relative mt-8 pt-8 border-t border-white/5 flex items-center justify-between px-2">
-                    <div className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_15px_rgba(34,197,94,0.6)]" />
-                      <span className="text-[10px] text-white/50 font-black tracking-[0.2em] uppercase">30 Professional Tools</span>
+                        <Link href="/tools" className="text-[10px] font-black uppercase tracking-[0.2em] text-primary hover:text-white transition-all flex items-center gap-2 group/all">
+                          <span>Full Toolbox</span>
+                          <ArrowLeftRight size={12} className="group-hover/all:translate-x-1 transition-transform" />
+                        </Link>
+                      </div>
                     </div>
-                    <Link href="/tools" className="text-[10px] font-black uppercase tracking-[0.2em] text-primary hover:text-white transition-all flex items-center gap-2 group/all">
-                      <span>Full Toolbox</span>
-                      <ArrowLeftRight size={12} className="group-hover/all:translate-x-1 transition-transform" />
-                    </Link>
                   </div>
-                </div>
+                )}
               </div>
             ))}
 

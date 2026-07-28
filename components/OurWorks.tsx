@@ -73,7 +73,7 @@ const works = [
   },
   {
     url: "https://zorgsocial.com/",
-    name: "Zorg Social",
+    name: "ZorgSocial",
     domain: "zorgsocial.com",
     category: "Marketing Agency",
     description:
@@ -108,7 +108,7 @@ export default function OurWorks() {
     <section ref={sectionRef} className="bg-background relative -mb-90 md:-mb-120">
       {/* Section header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-24">
-        <h2 className="text-3xl md:text-7xl font-black tracking-tight">
+        <h2 className="text-3xl md:text-7xl font-medium tracking-tight">
           Built to Perform.
         </h2>
         <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mt-6 leading-relaxed">

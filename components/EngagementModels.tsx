@@ -64,7 +64,7 @@ export default function EngagementModels() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-8xl font-black mb-10 tracking-tighter text-white font-heading"
+                        className="text-4xl md:text-8xl font-medium mb-10 tracking-tighter text-white font-heading"
                     >
                         Scale Your <span className="text-[#3168FA]">Success.</span>
                     </motion.h2>

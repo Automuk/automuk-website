@@ -8,7 +8,7 @@ const services = [
         icon: Cpu,
         title: "AI Solutions",
         description: "Custom-built intelligence that works 24/7. From advanced RAG pipelines to autonomous agents that handle complex tasks, data processing, and customer interactions.",
-        tags: ["GPT-5.2", "Claude 4.5", "Llama 3", "Vector DBs"],
+        tags: ["GPT-5.6", "Claude 5", "Llama 4", "Vector DBs"],
         color: "primary",
         large: true,
     },
@@ -72,7 +72,7 @@ export default function BentoFlex() {
         <section className="py-20 md:py-32 relative bg-background/50 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center mb-12 md:mb-24 animate-reveal">
-                    <h2 className="text-3xl md:text-7xl font-black mb-6 tracking-tight">Our Expertise</h2>
+                    <h2 className="text-3xl md:text-7xl font-medium mb-6 tracking-tight">Our Expertise</h2>
                     <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
                         One studio. Every digital capability you need — from AI to branding, websites to dashboards.
                     </p>

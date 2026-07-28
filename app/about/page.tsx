@@ -9,7 +9,7 @@ export default function AboutPage() {
             <PageContainer>
                 <div className="max-w-5xl mx-auto my-16 md:my-32">
                     <div className="text-center mb-16 md:mb-24 animate-fade-in-up">
-                        <h1 className="text-3xl md:text-8xl font-black mb-8 md:mb-10 tracking-tight leading-tight">Built for Efficiency, <br />Dedicated to Outcomes.</h1>
+                        <h1 className="text-3xl md:text-8xl font-medium mb-8 md:mb-10 tracking-tight leading-tight">Built for Efficiency, <br />Dedicated to Outcomes.</h1>
                         <p className="text-lg md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto font-medium">
                             Automuk is a founder-led freelance studio focused on one thing: helping businesses leverage AI and automation to scale without the overhead.
                         </p>

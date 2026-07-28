@@ -68,14 +68,14 @@ export default function StickyServices({ services }: { services: Service[] }) {
                                     className={activeIndex === index ? "block" : "absolute inset-0 md:relative"}
                                     style={{ display: activeIndex === index ? "block" : "none" }}
                                 >
-                                    <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white font-heading mb-6">
+                                    <h2 className="text-5xl md:text-7xl font-medium tracking-tighter text-white font-heading mb-6">
                                         {service.category.split(" ").map((word, i) => (
                                             <span key={i} className={i === 0 ? "" : "text-[#3168FA]"}>
                                                 {word}{" "}
                                             </span>
                                         ))}
                                     </h2>
-                                    <p className="text-[#94A3B8] text-sm md:text-xl md:text-2xl mt-4 max-w-lg leading-relaxed font-medium line-clamp-3 md:line-clamp-none">
+                                    <p className="text-[#94A3B8] text-sm md:text-xl md:text-2xl mt-4 max-w-lg leading-relaxed line-clamp-3 md:line-clamp-none">
                                         {service.description}
                                     </p>
                                 </motion.div>

@@ -48,9 +48,9 @@ export default function ServicesPage() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-center max-w-4xl mx-auto mt-24 md:mt-40 mb-0 md:mb-16 relative z-10"
+                    className="text-center max-w-4xl mx-auto mt-24 md:mt-40 mb-0 md:mb-40 relative z-10"
                 >
-                    <h1 className="text-4xl md:text-8xl font-black mb-6 md:mb-8 tracking-tighter leading-tight text-white font-heading">
+                    <h1 className="text-4xl md:text-8xl font-medium mb-6 md:mb-8 tracking-tighter leading-tight text-white font-heading">
                         Expertise That <span className="text-[#3168FA]">Scales</span>
                     </h1>
                     <p className="text-lg md:text-2xl text-[#94A3B8] leading-relaxed max-w-2xl mx-auto">
