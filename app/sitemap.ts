@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { works } from '@/lib/works-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://autom.uk'
@@ -9,7 +10,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/how-it-works',
         '/about',
         '/contact',
+        '/projects',
     ]
+
+    const projects = works.map((work) => `/projects/${work.slug}`)
 
     const tools = [
         '/tools/json-prettier',
@@ -33,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/tools/dice-roller',
     ]
 
-    const allPages = [...staticPages, ...tools]
+    const allPages = [...staticPages, ...projects, ...tools]
 
     return allPages.map((page) => ({
         url: `${baseUrl}${page}`,
