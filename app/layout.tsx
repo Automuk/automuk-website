@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LenisProvider from "@/components/LenisProvider";
+import AnalyticsPageViewTracker from "@/components/AnalyticsPageViewTracker";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -79,7 +81,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
 
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-PD62XY0KDF"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PD62XY0KDF');
+        `}
+      </Script>
+
       <body className="font-sans bg-[#020617] text-[#E5E7EB] antialiased">
+        <AnalyticsPageViewTracker />
         <LenisProvider>
           <Navbar />
           {children}
