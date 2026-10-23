@@ -37,6 +37,7 @@ export default function Footer() {
                             {[
                                 { name: "Services", href: "/services" },
                                 { name: "Process", href: "/how-it-works" },
+                                { name: "NetFiles (C++ App)", href: "/netfiles" },
                                 { name: "About", href: "/about" },
                                 { name: "Contact", href: "/contact" }
                             ].map((link) => (

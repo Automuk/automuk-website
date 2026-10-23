@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/about',
         '/contact',
         '/projects',
+        '/netfiles',
     ]
 
     const projects = works.map((work) => `/projects/${work.slug}`)

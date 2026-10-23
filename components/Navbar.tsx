@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   ChevronDown, Menu, X, ArrowLeftRight
@@ -12,10 +13,18 @@ type NavLink = {
   name: string;
   href: string;
   dropdown?: typeof tools;
+  badge?: string;
+  noUnderline?: boolean;
 };
 
 const navLinks: NavLink[] = [
   { name: "Services", href: "/services" },
+  {
+    name: "NetFiles",
+    href: "/netfiles",
+    badge: "NEW",
+    noUnderline: true,
+  },
   { name: "About", href: "/about" },
   {
     name: "Free Tools",
@@ -25,6 +34,7 @@ const navLinks: NavLink[] = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
@@ -44,67 +54,86 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className="hidden lg:flex items-center space-x-10">
-            {navLinks.map((link, i) => (
-              <div
-                key={link.name}
-                className="relative h-full flex items-center"
-                onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                {link.dropdown ? (
-                  <button className="flex items-center gap-1.5 text-muted-foreground hover:text-white transition-all text-sm font-medium animate-fade-in-up">
-                    {link.name}
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
-                  </button>
-                ) : (
-                  <Link
-                    href={link.href}
-                    className={`text-muted-foreground hover:text-white transition-all text-sm font-medium relative group animate-fade-in-up stagger-${i + 1}`}
-                  >
-                    {link.name}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
-                  </Link>
-                )}
+          <div className="hidden lg:flex items-center space-x-8 xl:space-x-10">
+            {navLinks.map((link, i) => {
+              const isActive = link.href !== "#" && (pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href)));
 
-                {/* Dropdown nested inside the same hover zone */}
-                {link.dropdown && (
-                  <div
-                    className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 w-fit pointer-events-auto transition-all duration-200 origin-top ${activeDropdown === link.name ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
-                  >
-                    <div className="relative bg-[#020617]/80 border border-white/10 rounded-[2.5rem] p-10 shadow-[0_40px_100px_rgba(0,0,0,0.8)] backdrop-blur-[40px] overflow-hidden w-[1100px]">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent backdrop-blur-lg pointer-events-none" />
-                      <div className="relative grid grid-cols-5 gap-x-2 gap-y-1">
-                        {link.dropdown.map((tool) => (
-                          <Link
-                            key={tool.name}
-                            href={tool.href}
-                            className="group flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all duration-200 outline-none w-full"
-                          >
-                            <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-[#94A3B8] group-hover:bg-primary group-hover:text-white transition-all duration-300 shrink-0">
-                              <tool.icon size={18} />
-                            </div>
-                            <div className="text-[13px] font-bold text-[#94A3B8] group-hover:text-white transition-colors truncate">
-                              {tool.name}
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
-                      <div className="relative mt-8 pt-8 border-t border-white/5 flex items-center justify-between px-2">
-                        <div className="flex items-center gap-3">
-                          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_15px_rgba(34,197,94,0.6)]" />
-                          <span className="text-[10px] text-white/50 font-black tracking-[0.2em] uppercase">30 Professional Tools</span>
+              return (
+                <div
+                  key={link.name}
+                  className="relative h-full flex items-center"
+                  onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  {link.dropdown ? (
+                    <button className={`flex items-center gap-1.5 transition-all text-sm font-medium animate-fade-in-up ${
+                      pathname.startsWith("/tools") ? "text-white" : "text-muted-foreground hover:text-white"
+                    }`}>
+                      {link.name}
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
+                    </button>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className={`flex items-center gap-1.5 transition-all text-sm font-medium relative group animate-fade-in-up stagger-${i + 1} ${
+                        isActive ? "text-white" : "text-muted-foreground hover:text-white"
+                      }`}
+                    >
+                      <span>{link.name}</span>
+                      {link.badge && (
+                        <span className="px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded bg-primary text-white leading-none">
+                          {link.badge}
+                        </span>
+                      )}
+                      {!link.noUnderline && !link.badge && (
+                        <span
+                          className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all ${
+                            isActive ? "w-full" : "w-0 group-hover:w-full"
+                          }`}
+                        />
+                      )}
+                    </Link>
+                  )}
+
+                  {/* Dropdown nested inside the same hover zone */}
+                  {link.dropdown && (
+                    <div
+                      className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 w-fit pointer-events-auto transition-all duration-200 origin-top ${activeDropdown === link.name ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
+                    >
+                      <div className="relative bg-[#020617]/80 border border-white/10 rounded-[2.5rem] p-10 shadow-[0_40px_100px_rgba(0,0,0,0.8)] backdrop-blur-[40px] overflow-hidden w-[1100px]">
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent backdrop-blur-lg pointer-events-none" />
+                        <div className="relative grid grid-cols-5 gap-x-2 gap-y-1">
+                          {link.dropdown.map((tool) => (
+                            <Link
+                              key={tool.name}
+                              href={tool.href}
+                              className="group flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all duration-200 outline-none w-full"
+                            >
+                              <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-[#94A3B8] group-hover:bg-primary group-hover:text-white transition-all duration-300 shrink-0">
+                                <tool.icon size={18} />
+                              </div>
+                              <div className="text-[13px] font-bold text-[#94A3B8] group-hover:text-white transition-colors truncate">
+                                {tool.name}
+                              </div>
+                            </Link>
+                          ))}
                         </div>
-                        <Link href="/tools" className="text-[10px] font-black uppercase tracking-[0.2em] text-primary hover:text-white transition-all flex items-center gap-2 group/all">
-                          <span>Full Toolbox</span>
-                          <ArrowLeftRight size={12} className="group-hover/all:translate-x-1 transition-transform" />
-                        </Link>
+                        <div className="relative mt-8 pt-8 border-t border-white/5 flex items-center justify-between px-2">
+                          <div className="flex items-center gap-3">
+                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_15px_rgba(34,197,94,0.6)]" />
+                            <span className="text-[10px] text-white/50 font-black tracking-[0.2em] uppercase">30 Professional Tools</span>
+                          </div>
+                          <Link href="/tools" className="text-[10px] font-black uppercase tracking-[0.2em] text-primary hover:text-white transition-all flex items-center gap-2 group/all">
+                            <span>Full Toolbox</span>
+                            <ArrowLeftRight size={12} className="group-hover/all:translate-x-1 transition-transform" />
+                          </Link>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
-              </div>
-            ))}
+                  )}
+                </div>
+              );
+            })}
 
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white shadow-[0_0_20px_rgba(49,104,250,0.4)] transition-all hover:scale-105 rounded-full px-8">
               <Link href="/contact">Book a Consultation</Link>
@@ -131,40 +160,53 @@ export default function Navbar() {
         className={`glass border-b border-white/10 overflow-hidden lg:hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}
       >
         <div className="px-4 pt-4 pb-8 space-y-6 overflow-y-auto max-h-[calc(100vh-5rem)]">
-          {navLinks.map((link) => (
-            <div key={link.name}>
-              {link.dropdown ? (
-                <div className="space-y-4">
-                  <span className="block px-3 py-1 text-[10px] text-primary/60 font-black uppercase tracking-[0.2em] border-l-2 border-primary/20">
-                    {link.name} (30)
-                  </span>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                    {link.dropdown.map((sub) => (
-                      <Link
-                        key={sub.name}
-                        href={sub.href}
-                        onClick={() => setIsOpen(false)}
-                        className="flex items-center gap-3 p-3 bg-white/5 rounded-xl border border-white/5 active:bg-primary/10 transition-colors"
-                      >
-                        <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#94A3B8]">
-                          <sub.icon size={16} />
-                        </div>
-                        <span className="text-sm font-bold text-[#94A3B8]">{sub.name}</span>
-                      </Link>
-                    ))}
+          {navLinks.map((link) => {
+            const isActive = link.href !== "#" && (pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href)));
+
+            return (
+              <div key={link.name}>
+                {link.dropdown ? (
+                  <div className="space-y-4">
+                    <span className="block px-3 py-1 text-[10px] text-primary/60 font-black uppercase tracking-[0.2em] border-l-2 border-primary/20">
+                      {link.name} (30)
+                    </span>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                      {link.dropdown.map((sub) => (
+                        <Link
+                          key={sub.name}
+                          href={sub.href}
+                          onClick={() => setIsOpen(false)}
+                          className="flex items-center gap-3 p-3 bg-white/5 rounded-xl border border-white/5 active:bg-primary/10 transition-colors"
+                        >
+                          <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#94A3B8]">
+                            <sub.icon size={16} />
+                          </div>
+                          <span className="text-sm font-bold text-[#94A3B8]">{sub.name}</span>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <Link
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-3 py-4 text-lg text-white font-bold border-b border-white/5"
-                >
-                  {link.name}
-                </Link>
-              )}
-            </div>
-          ))}
+                ) : (
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`flex items-center justify-between px-3 py-4 text-lg font-bold border-b border-white/5 transition-colors ${
+                      isActive ? "text-primary" : "text-white"
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <span>{link.name}</span>
+                      {link.badge && (
+                        <span className="px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded bg-primary text-white leading-none">
+                          {link.badge}
+                        </span>
+                      )}
+                    </span>
+                  </Link>
+                )}
+              </div>
+            );
+          })}
           <div className="pt-4">
             <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white h-14 text-sm font-bold uppercase tracking-widest rounded-2xl shadow-xl shadow-primary/20">
               <Link href="/contact" onClick={() => setIsOpen(false)}>Book a Consultation</Link>
