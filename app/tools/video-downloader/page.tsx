@@ -50,6 +50,8 @@ export default function VideoDownloader() {
         return 'unknown';
     };
 
+    const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000';
+
     const handleFetchInfo = async () => {
         if (!url) {
             setError("Please enter a video URL");
@@ -61,7 +63,7 @@ export default function VideoDownloader() {
         setVideoInfo(null);
 
         try {
-            const response = await fetch('/api/video-info', {
+            const response = await fetch(`${BACKEND_URL}/api/video-info`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ url })
@@ -91,7 +93,7 @@ export default function VideoDownloader() {
         setError("");
 
         try {
-            const endpoint = '/api/video-download';
+            const endpoint = `${BACKEND_URL}/api/video-download`;
             const body = { url, formatId: selectedFormat };
 
             const response = await fetch(endpoint, {
