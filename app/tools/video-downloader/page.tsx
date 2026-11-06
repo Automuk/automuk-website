@@ -51,7 +51,7 @@ export default function VideoDownloader() {
     };
 
     const currentPlatform = detectPlatform(url);
-    const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || process.env.BACKEND_URL || 'http://localhost:8000';
+    const BACKEND_URL = process.env.BACKEND_URL;
 
     const handleFetchInfo = async () => {
         if (!url) {
