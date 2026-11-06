@@ -50,11 +50,18 @@ export default function VideoDownloader() {
         return 'unknown';
     };
 
-    const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000';
+    const currentPlatform = detectPlatform(url);
+    const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || process.env.BACKEND_URL || 'http://localhost:8000';
 
     const handleFetchInfo = async () => {
         if (!url) {
             setError("Please enter a video URL");
+            return;
+        }
+
+        const platform = detectPlatform(url);
+        if (platform === 'unknown') {
+            setError("Unsupported platform. Please enter a valid YouTube, Instagram, or Twitch URL.");
             return;
         }
 
@@ -144,17 +151,17 @@ export default function VideoDownloader() {
                     </p>
 
                     <div className="flex items-center justify-center gap-4 md:gap-6 mt-6 md:mt-8">
-                        <div className="flex items-center gap-2 text-[#94A3B8]">
+                        <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full transition-all duration-300 ${currentPlatform === 'youtube' ? 'bg-red-500/15 border border-red-500/40 text-white font-semibold shadow-sm' : 'text-[#94A3B8]'}`}>
                             <FontAwesomeIcon icon={faYoutube} className="text-red-500 text-xl md:text-2xl" />
-                            <span className="text-xs md:text-sm font-medium">YouTube</span>
+                            <span className="text-xs md:text-sm">YouTube</span>
                         </div>
-                        <div className="flex items-center gap-2 text-[#94A3B8]">
+                        <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full transition-all duration-300 ${currentPlatform === 'instagram' ? 'bg-pink-500/15 border border-pink-500/40 text-white font-semibold shadow-sm' : 'text-[#94A3B8]'}`}>
                             <FontAwesomeIcon icon={faInstagram} className="text-pink-500 text-xl md:text-2xl" />
-                            <span className="text-xs md:text-sm font-medium">Instagram</span>
+                            <span className="text-xs md:text-sm">Instagram</span>
                         </div>
-                        <div className="flex items-center gap-2 text-[#94A3B8]">
+                        <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full transition-all duration-300 ${currentPlatform === 'twitch' ? 'bg-purple-500/15 border border-purple-500/40 text-white font-semibold shadow-sm' : 'text-[#94A3B8]'}`}>
                             <FontAwesomeIcon icon={faTwitch} className="text-purple-500 text-xl md:text-2xl" />
-                            <span className="text-xs md:text-sm font-medium">Twitch</span>
+                            <span className="text-xs md:text-sm">Twitch</span>
                         </div>
                     </div>
                 </motion.div>
@@ -163,7 +170,14 @@ export default function VideoDownloader() {
                     <Card className="bg-[#1E293B]/40 border-[#334155] p-6 md:p-8">
                         <div className="space-y-4 md:space-y-6">
                             <div className="space-y-2">
-                                <label className="text-xs font-bold text-[#94A3B8] uppercase tracking-widest">Video URL</label>
+                                <div className="flex items-center justify-between">
+                                    <label className="text-xs font-bold text-[#94A3B8] uppercase tracking-widest">Video URL</label>
+                                    {currentPlatform !== 'unknown' && (
+                                        <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-[#3168FA]/20 text-[#3168FA] capitalize">
+                                            {currentPlatform} detected
+                                        </span>
+                                    )}
+                                </div>
                                 <div className="flex gap-2">
                                     <Input
                                         type="text"
@@ -215,6 +229,11 @@ export default function VideoDownloader() {
                                                 className="w-24 h-24 md:w-32 md:h-32 object-cover rounded-lg shrink-0"
                                             />
                                             <div className="flex-1 min-w-0">
+                                                <div className="flex items-center gap-2 mb-1.5">
+                                                    <span className="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-[#334155]/60 text-[#94A3B8] uppercase tracking-wider">
+                                                        {videoInfo.platform || detectPlatform(url)}
+                                                    </span>
+                                                </div>
                                                 <h3 className="text-white font-bold text-sm md:text-base mb-2 line-clamp-2">{videoInfo.title}</h3>
                                                 <p className="text-[#94A3B8] text-xs md:text-sm mb-1">{videoInfo.uploader}</p>
                                                 <div className="flex items-center gap-2">
