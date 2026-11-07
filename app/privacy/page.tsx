@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import PageContainer from "@/components/PageContainer";
 import { motion } from "framer-motion";
 
@@ -50,6 +51,17 @@ export default function PrivacyPage() {
                             <h2 className="text-2xl font-bold text-white mb-4">Cookies</h2>
                             <p>
                                 We use functional cookies to enhance your experience on our website. You can manage your cookie preferences through your browser settings.
+                            </p>
+                        </section>
+
+                        <section>
+                            <h2 className="text-2xl font-bold text-white mb-4">Desktop Applications (NetFiles)</h2>
+                            <p>
+                                If you use our native Windows desktop explorer <strong className="text-white">NetFiles</strong>, please refer to the dedicated{" "}
+                                <Link href="/netfiles/privacy" className="text-[#3168FA] hover:underline font-bold">
+                                    NetFiles Privacy Policy
+                                </Link>{" "}
+                                for specific details regarding PKCE OAuth authentication for Google Drive and Dropbox, local OneDrive filesystem handling, SSH encryption, and peer-to-peer (P2P) swarm seeding data disclosures.
                             </p>
                         </section>
 

@@ -38,11 +38,11 @@ export default function ComparisonMatrix() {
       highlight: true
     },
     {
-      feature: "Unified Cloud Hub (GDrive, Dropbox, OneDrive)",
-      netfiles: "Zero-copy Virtual File System",
-      windowsExplorer: "Requires 3 sync clients",
+      feature: "Cloud Hub (GDrive, Dropbox, OneDrive)",
+      netfiles: "GDrive & Dropbox VFS (PKCE) + Local OneDrive",
+      windowsExplorer: "Separate unlinked folders",
       electronApps: false,
-      separateApps: "3 separate background sync apps",
+      separateApps: "Multiple separate background clients",
       highlight: true
     },
     {
@@ -54,8 +54,8 @@ export default function ComparisonMatrix() {
       highlight: true
     },
     {
-      feature: "Torrent Search & P2P Downloader",
-      netfiles: "Built-in DHT & libtorrent v2",
+      feature: "P2P Downloader & Torrent Swarms",
+      netfiles: "Native libtorrent v2 (Search API URL)",
       windowsExplorer: false,
       electronApps: false,
       separateApps: "Separate client (qBittorrent)",

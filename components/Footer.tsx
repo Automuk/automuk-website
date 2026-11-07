@@ -77,8 +77,9 @@ export default function Footer() {
                     <p className="text-[#94A3B8] text-sm">
                         &copy; {new Date().getFullYear()} Automuk Consultants. All rights reserved.
                     </p>
-                    <div className="flex items-center gap-6 text-xs font-bold tracking-widest text-[#94A3B8] uppercase font-heading">
+                    <div className="flex flex-wrap items-center gap-6 text-xs font-bold tracking-widest text-[#94A3B8] uppercase font-heading">
                         <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+                        <Link href="/netfiles/privacy" className="hover:text-white transition-colors">NetFiles Privacy</Link>
                         <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
                     </div>
                 </div>

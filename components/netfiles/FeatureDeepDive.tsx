@@ -59,17 +59,17 @@ export default function FeatureDeepDive() {
     {
       id: "cloud",
       badge: "Unified Virtual Cloud Storage",
-      title: "Google Drive, Dropbox & OneDrive in One Tree",
+      title: "Google Drive, Dropbox & Local OneDrive in One Tree",
       tagline: "Access petabytes of cloud storage like local drives without wasting local SSD storage.",
       description:
-        "Stop running 4 separate electron tray apps that hog 3GB of RAM just to sync files. NetFiles mounts Google Drive, Dropbox, OneDrive, Nextcloud, and AWS S3 directly into your file explorer using a zero-copy virtual filesystem. Files stream on demand. Copy 100GB directly between Google Drive and Dropbox server-to-server without eating your home internet bandwidth.",
+        "Stop running separate electron tray apps that hog gigabytes of RAM. NetFiles mounts Google Drive and Dropbox via PKCE OAuth using an on-demand virtual filesystem with zero local disk waste. For Microsoft OneDrive, it connects directly with your existing local OneDrive directory on Windows (no PKCE required), unifying cloud and local sync folders.",
       icon: Cloud,
       accent: "#CE77FB",
       bulletPoints: [
-        "Native OAuth2 integration for Google Drive, Dropbox, Microsoft OneDrive, and AWS S3",
-        "On-Demand Virtual File System: browse all remote files without syncing them to local disk first",
+        "Native PKCE OAuth integration for Google Drive and Dropbox with zero local disk usage",
+        "Direct local OneDrive integration via your Windows local client directory",
         "Direct Cloud-to-Cloud transfers: pipeline files between cloud providers without local disk caching",
-        "Unified global search across both your local NVMe drives and all connected cloud accounts simultaneously"
+        "Unified global search across your local NVMe drives, local OneDrive, and mounted cloud accounts"
       ],
       techSpec: "Multi-threaded libcurl + Chunked Streaming Pipeline + Local LRU Memory Cache",
       visualPreview: {

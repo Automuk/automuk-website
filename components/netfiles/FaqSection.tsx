@@ -13,19 +13,19 @@ export default function FaqSection() {
 
   const faqs: FaqItem[] = [
     {
-      question: "How does NetFiles browse Google Drive, Dropbox, and OneDrive without filling up my SSD?",
+      question: "How does NetFiles handle Google Drive, Dropbox, and OneDrive?",
       answer:
-        "NetFiles implements a high-performance C++ Virtual File System (VFS). Instead of downloading all your cloud files locally like default desktop sync clients do, it queries metadata on demand and presents your cloud files in a native Windows explorer hierarchy. Files are streamed in chunks only when you open or copy them, keeping your local disk footprint near zero."
+        "For Google Drive and Dropbox, NetFiles implements a high-performance C++ Virtual File System (VFS) with PKCE OAuth, querying metadata on demand and streaming chunks so local SSD footprint stays near zero. For Microsoft OneDrive, NetFiles connects directly to your existing local OneDrive directory on Windows (no PKCE required), unifying cloud streams and your local folder into one seamless tree."
     },
     {
       question: "How does the built-in torrent search and swarm downloader work?",
       answer:
-        "NetFiles embeds the native C++ libtorrent engine directly. The search bar queries both decentralized Mainline DHT nodes and verified index feeds without opening ad-ridden torrent websites. When you start a download, our multi-peer engine connects to healthy swarm seeds and validates piece hashes using Blake3 in real time for maximum line-rate download speeds."
+        "NetFiles embeds the native C++ libtorrent engine directly for high-throughput peer-to-peer (P2P) transfers. Even though the application holds native P2P downloading and seeding services, it still requires users to configure a search API URL to query and index torrent swarms. Once your search API URL is connected, NetFiles retrieves results and handles swarm piece validation in real time for line-rate download speeds."
     },
     {
       question: "Are my SSH credentials, private keys, and cloud OAuth tokens secure?",
       answer:
-        "100% yes. NetFiles operates strictly local-first. We do NOT run intermediate cloud servers or proxies. All cloud tokens and SSH private keys are encrypted locally using Windows DPAPI (Data Protection API) tied to your Windows hardware user account. Your keys and passwords never leave your computer."
+        "100% yes. NetFiles operates strictly local-first with zero telemetry or intermediate proxies. For Google Drive and Dropbox, NetFiles uses standard PKCE OAuth flows. For OneDrive, it integrates with your local client folder directly. SSH connections follow standard encrypted protocol practices. When downloading torrents, keep in mind that P2P protocols share data chunks with peers when seeding. Full details are available in our NetFiles Privacy Policy."
     },
     {
       question: "Why C++ instead of Electron, Tauri, or C#?",

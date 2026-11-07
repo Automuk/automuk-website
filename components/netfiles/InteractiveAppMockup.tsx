@@ -51,7 +51,7 @@ const LOCAL_FILES: FileItem[] = [
 const CLOUD_FILES: FileItem[] = [
   { id: "c1", name: "[Google Drive] 2026_Design_Renders.psd", type: "media", size: "840 MB", modified: "Synced", badge: "GDrive Virtual", badgeColor: "bg-amber-500/20 text-amber-400" },
   { id: "c2", name: "[Dropbox] Client_Contracts_Signed.pdf", type: "document", size: "4.8 MB", modified: "Synced", badge: "Dropbox", badgeColor: "bg-blue-500/20 text-blue-400" },
-  { id: "c3", name: "[OneDrive] Video_Assets_4K.raw", type: "media", size: "14.8 GB", modified: "Streamable", badge: "OneDrive", badgeColor: "bg-sky-500/20 text-sky-400" },
+  { id: "c3", name: "[OneDrive] Video_Assets_4K.raw", type: "media", size: "14.8 GB", modified: "Local Sync", badge: "OneDrive (Local)", badgeColor: "bg-sky-500/20 text-sky-400" },
   { id: "c4", name: "[AWS S3] prod-database-dump.sql.gz", type: "archive", size: "3.2 GB", modified: "Direct Mount", badge: "s3://eu-central-1", badgeColor: "bg-orange-500/20 text-orange-400" },
   { id: "c5", name: "[Nextcloud] Team_Notes_Encrypted.kdbx", type: "document", size: "820 KB", modified: "E2EE", badge: "Private Cloud", badgeColor: "bg-emerald-500/20 text-emerald-400" },
 ];
@@ -106,7 +106,7 @@ export default function InteractiveAppMockup() {
               N
             </div>
             <span className="text-xs font-semibold text-white/90 tracking-wide font-mono">
-              NetFiles v1.4.0 <span className="text-white/40 font-normal">| Native C++20 Core</span>
+              NetFiles v1.0.0 <span className="text-white/40 font-normal">| Native C++20 Core</span>
             </span>
           </div>
         </div>
@@ -243,7 +243,7 @@ export default function InteractiveAppMockup() {
               <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-primary" />
               <input
                 type="text"
-                placeholder="Search torrents across decentralized web..."
+                placeholder="Search torrents (requires configured search API URL)..."
                 value={torrentQuery}
                 onChange={(e) => setTorrentQuery(e.target.value)}
                 className="bg-[#0b0f19] border border-primary/40 rounded-lg pl-8 pr-3 py-1.5 text-[11px] text-white placeholder-white/40 w-48 sm:w-72 focus:outline-none focus:ring-1 focus:ring-primary transition"
@@ -336,9 +336,9 @@ export default function InteractiveAppMockup() {
               >
                 <div className="flex items-center gap-2">
                   <Cloud size={13} className="text-sky-400" />
-                  <span>Microsoft OneDrive</span>
+                  <span>OneDrive (Local)</span>
                 </div>
-                <span className="text-[9px] font-mono text-white/40">500 GB</span>
+                <span className="text-[9px] font-mono text-white/40">Local Dir</span>
               </div>
             </div>
           </div>
@@ -401,12 +401,12 @@ export default function InteractiveAppMockup() {
                       Decentralized Torrent Search & Download Hub
                     </h3>
                     <p className="text-xs text-white/60 mt-0.5">
-                      Directly query peer-to-peer swarms. Download multi-gigabyte files and datasets at line speed.
+                      Directly query peer-to-peer swarms. While NetFiles provides native P2P transfer services, searching requires users to configure a search API URL.
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="px-2 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-mono">
-                      DHT: 1.2M Nodes
+                    <span className="px-2 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 text-[10px] font-mono">
+                      Requires Search API URL
                     </span>
                     <span className="px-2 py-1 rounded bg-primary/10 text-primary border border-primary/20 text-[10px] font-mono">
                       C++ libtorrent v2.0

@@ -62,16 +62,16 @@ const STAGES: Stage[] = [
     id: "cloud-vfs",
     index: 1,
     label: "Unified Cloud",
-    title: "Google Drive, Dropbox & OneDrive. One Virtual Tree.",
-    tagline: "Access petabytes of cloud assets without eating local SSD space.",
+    title: "Google Drive, Dropbox & Local OneDrive. One Unified Tree.",
+    tagline: "Stream petabytes of cloud assets via PKCE, unified with your local OneDrive.",
     description:
-      "Instead of running multiple resource-draining cloud sync utilities, NetFiles mounts Google Drive, Dropbox, and Microsoft OneDrive as virtual folders directly in your Explorer hierarchy. Files stream on demand with zero local caching waste, and cloud-to-cloud copies bypass your local bandwidth entirely.",
+      "Instead of running multiple resource-draining cloud sync utilities, NetFiles mounts Google Drive and Dropbox as on-demand virtual filesystems via PKCE OAuth with zero local disk waste. For Microsoft OneDrive, NetFiles connects directly to your existing local OneDrive folder on Windows (no PKCE required), uniting cloud streams and your local drive into one seamless workspace.",
     accent: "#CE77FB",
     specs: [
-      { label: "Local Disk Used", value: "0 GB" },
+      { label: "Cloud PKCE VFS", value: "GDrive & Dropbox" },
+      { label: "OneDrive", value: "Local Directory" },
+      { label: "Zero-Disk Stream", value: "GDrive / Dropbox" },
       { label: "Cloud-to-Cloud", value: "Direct Pipe" },
-      { label: "Search Scope", value: "Global VFS" },
-      { label: "Supported", value: "GDrive · Dropbox · OneDrive" },
     ],
   },
   {
@@ -94,14 +94,14 @@ const STAGES: Stage[] = [
     id: "torrent-engine",
     index: 3,
     label: "Torrent Engine",
-    title: "Decentralized Swarm Search. Line-Rate P2P Downloads.",
+    title: "Decentralized Swarms. Line-Rate P2P Downloads.",
     tagline: "Integrated libtorrent v2 engine with multi-peer swarm optimization.",
     description:
-      "Modern desktop workflows force you into running separate, resource-draining torrent clients bundled with adware. NetFiles embeds the native C++ libtorrent engine directly into your file explorer. Search decentralized DHT swarms and public index feeds right from your search bar, downloading multi-gigabyte ISOs, datasets, and archives at full network line speed with automatic Blake3 piece verification.",
+      "Modern desktop workflows force you into running separate, resource-draining torrent clients bundled with adware. NetFiles embeds the native C++ libtorrent engine directly into your file explorer. Even though the application holds native P2P services for ultra-fast multi-peer downloading and seeding, it still requires users to configure a search API URL to index swarms, giving you complete sovereignty over your search sources.",
     accent: "#F59E0B",
     specs: [
-      { label: "Swarm Core", value: "libtorrent v2.0" },
-      { label: "Peak Throughput", value: "1.2 Gbps" },
+      { label: "P2P Engine", value: "libtorrent v2.0" },
+      { label: "Search Index", value: "Search API URL" },
       { label: "Privacy", value: "VPN Adapter Binding" },
       { label: "Verification", value: "Hardware Blake3" },
     ],
@@ -409,20 +409,29 @@ function CloudVisual({ accent, reduced }: VisualProps) {
     {
       name: "Google Drive",
       icon: <GoogleDriveIcon className="h-5 w-5" />,
+      badge: "PKCE VFS",
+      badgeColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
       size: "2.4 TB Virtual",
+      diskInfo: "0 B local disk",
       path: "/Volumes/GDrive/Projects",
     },
     {
       name: "Dropbox",
       icon: <FontAwesomeIcon icon={faDropbox} className="text-lg text-[#0061FF]" />,
+      badge: "PKCE VFS",
+      badgeColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
       size: "850 GB Virtual",
+      diskInfo: "0 B local disk",
       path: "/Volumes/Dropbox/Raw_Assets",
     },
     {
       name: "Microsoft OneDrive",
       icon: <OneDriveIcon className="h-5 w-5" />,
-      size: "1.2 TB Virtual",
-      path: "/Volumes/OneDrive/Archives",
+      badge: "Local Directory",
+      badgeColor: "text-sky-400 bg-sky-500/10 border-sky-500/20",
+      size: "Local Folder",
+      diskInfo: "Native local sync",
+      path: "C:\\Users\\User\\OneDrive",
     },
   ];
 
@@ -431,10 +440,10 @@ function CloudVisual({ accent, reduced }: VisualProps) {
       <div className="flex items-center justify-between pb-1 text-xs font-mono text-[#94A3B8]">
         <span className="flex items-center gap-2">
           <Cloud size={14} className="text-secondary" />
-          <span className="text-white/90">Virtual Cloud Filesystem</span>
+          <span className="text-white/90">Cloud VFS & Local Sync</span>
         </span>
         <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-secondary/20 text-secondary border border-secondary/30">
-          On-Demand Streaming
+          On-Demand + Local
         </span>
       </div>
 
@@ -451,8 +460,8 @@ function CloudVisual({ accent, reduced }: VisualProps) {
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-bold text-white truncate font-heading">{p.name}</span>
-                  <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
-                    Mounted
+                  <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded border ${p.badgeColor}`}>
+                    {p.badge}
                   </span>
                 </div>
                 <span className="text-xs font-mono text-[#94A3B8] block truncate mt-0.5">
@@ -463,7 +472,7 @@ function CloudVisual({ accent, reduced }: VisualProps) {
 
             <div className="text-right shrink-0">
               <span className="text-xs font-mono text-white/90 block font-semibold">{p.size}</span>
-              <span className="text-[10px] font-mono text-white/40 block mt-0.5">0 B local disk</span>
+              <span className="text-[10px] font-mono text-white/40 block mt-0.5">{p.diskInfo}</span>
             </div>
           </div>
         ))}

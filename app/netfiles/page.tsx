@@ -10,7 +10,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "NetFiles | C++ Desktop File Explorer on Steroids (SSH, Cloud & Torrents)",
   description:
-    "Windows File Explorer reimagined in native C++. Connect SSH servers, mount Google Drive, Dropbox, and OneDrive with zero local disk usage, and search/stream decentralized torrents.",
+    "Windows File Explorer reimagined in native C++. Connect SSH servers, mount Google Drive and Dropbox via PKCE with zero local disk usage, integrate local OneDrive, and search/stream decentralized torrents.",
   keywords: [
     "NetFiles",
     "C++ file explorer",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "SFTP desktop client",
     "Google Drive desktop explorer",
     "Dropbox mount",
-    "OneDrive virtual drive",
+    "OneDrive local integration",
     "Torrent search desktop app",
     "stream torrents while downloading",
     "native C++ desktop app",
@@ -58,10 +58,12 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "NetFiles",
+  "softwareVersion": "1.0.0",
+  "downloadUrl": "https://cdn.autom.uk/NetFiles-1.0.0-Setup.msi",
   "operatingSystem": "Windows 10, Windows 11",
   "applicationCategory": "UtilitiesApplication",
   "description":
-    "High-performance native C++ desktop file manager with built-in SSH/SFTP, unified Google Drive/Dropbox/OneDrive virtual file system, and decentralized torrent search and streaming downloader.",
+    "High-performance native C++ desktop file manager with built-in SSH/SFTP, unified Google Drive & Dropbox PKCE virtual file system, local OneDrive integration, and decentralized P2P torrent streaming downloader with custom search API URL support.",
   "offers": {
     "@type": "Offer",
     "price": "0",

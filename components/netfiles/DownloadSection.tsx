@@ -33,13 +33,9 @@ export default function DownloadSection() {
               className="bg-primary hover:bg-primary/90 text-white min-w-[280px] h-14 sm:h-16 text-base sm:text-lg rounded-2xl shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:scale-105 font-medium"
             >
               <a
-                href="#download"
-                onClick={() =>
-                  alert(
-                    "NetFiles v1.4.0 Windows Installer package is being prepared for release. Star or request early access!"
-                  )
-                }
+                href="https://cdn.autom.uk/NetFiles-1.0.0-Setup.msi"
                 className="flex items-center justify-center gap-2.5"
+                download
               >
                 <Download size={20} />
                 <span>Download NetFiles .msi</span>
@@ -47,8 +43,15 @@ export default function DownloadSection() {
             </Button>
 
             <span className="text-xs font-mono text-[#94A3B8]/60">
-              v1.4.0 (Stable) • Windows Installer
+              v1.0.0 (Stable) • Windows Installer
             </span>
+
+            <div className="mt-2 text-xs text-[#94A3B8]">
+              By using NetFiles, you agree to our{" "}
+              <Link href="/netfiles/privacy" className="text-primary hover:underline font-medium">
+                NetFiles Privacy Policy
+              </Link>
+            </div>
           </div>
         </div>
 

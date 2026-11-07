@@ -71,7 +71,7 @@ export default function CinematicHero() {
           >
             <a href="#download" className="flex items-center justify-center gap-2.5">
               <Download size={20} />
-              <span>Download NetFiles (v1.4.0)</span>
+              <span>Download NetFiles (v1.0.0)</span>
             </a>
           </Button>
 
